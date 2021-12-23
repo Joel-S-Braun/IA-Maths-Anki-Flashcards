@@ -1,0 +1,928 @@
+\documentclass[]{article}
+\usepackage[english]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{pagecolor}
+\usepackage{sectsty}
+\definecolor{hotpink}{rgb}{1,0.52,0.73}
+\definecolor{rad}{rgb}{1,0.4,.4}
+\colorlet{dgrey}{white!5!black!95!}
+
+\def\bx{\mathbf x}
+\def\by{\mathbf y}
+\def\naturals{\mathbb{N}}
+\def\integers{\mathbb{Z}}
+\def\rationals{\mathbb{Q}}
+\def\algebraics{\mathbb{A}}
+\def\reals{\mathbb{R}}
+\def\powerset{\mathcal{P}}
+
+
+
+\sectionfont{\color{hotpink}}  % sets colour of sections
+\pagecolor{dgrey}
+\color{white}
+
+%%% qn/answer style
+\theoremstyle{remark}
+\newtheoremstyle{qnstyle}
+  {1.5em} % Space above
+  {} % Space below
+  {} % Body font
+  {} % Indent amount
+  {\bfseries \color{rad}} % Theorem head font
+  {.} % Punctuation after theorem head
+  {.5em} % Space after theorem head
+  {} % Theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{qnstyle}
+\newtheorem{question}{Question}
+\newtheoremstyle{answerstyle}
+    {-.5em} % Space above
+    {} % Space below
+    {} % Body font
+    {} % Indent amount
+    {\bfseries \color{rad}} % Theorem head font
+    {.} % Punctuation after theorem head
+    {.5em} % Space after theorem head
+    {} % Theorem head spec (can be left empty, meaning `normal')
+\theoremstyle{answerstyle}
+\newtheorem*{answer}{Answer}
+
+\begin{document}
+\noindent
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 2
+\section* {Lecture 2}
+
+\begin{question}
+    Prove the contrapositive.
+\end{question}
+\begin{answer}
+    Recall $A \Rightarrow B$ in terms of logical quantifiers and apply commutativity.
+\end{answer}
+
+\begin{question}
+    State the Peano axioms defining $\mathbb{N}$.
+\end{question}
+\begin{answer}
+    The natural numbers $\naturals$ is a set containing the element '1' 
+    with an operation `+1' satisfying \\
+    (i) $\forall n \in \naturals$, $n+1 \neq 1$; \\
+    (ii) $\forall m,n \in \naturals$, if $m \neq n$, then $m+1 \neq n+1$; \\
+    (iii) for any property $P(n)$, if $P(1)$ is true and $\forall n \in \naturals$,
+    $P(n) \Rightarrow P(n+1)$, then $P(n)$ is true for all natural numbers.
+\end{answer}
+
+\begin{question}
+    Define the operation `+k' for $k \in \naturals$ in terms of `+1'.
+\end{question}
+\begin{answer}
+    For every natural number $n$, $n+(k+1) = (n+k)+1$.\\
+    This is defined by induction on $P(k) =$ `` `$+k$' is defined''
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 3
+\section* {Lecture 3}
+
+\begin{question}
+    Show WPI and SPI are equivalent.
+\end{question}
+\begin{answer}
+    To show WPI implies SPI, apply the former to $Q(n) = ``P(m)\; \forall\; m \leq n$''.
+    To SPI implies WPI is self-evident.
+\end{answer}
+
+\begin{question}
+    What is the well-ordering principle?
+\end{question}
+\begin{answer}
+    If $P(n)$ holds for some $n \in \naturals$, then there is a least $n \in \naturals$ s.t. $P(n)$
+ holds. 
+\end{answer}
+
+\begin{question}
+    Prove that SPI is equivalent to WOP.
+\end{question}
+\begin{answer}
+    Consider P(n) false and apply WOP and premises of SPI to obtain contradiction to show WOP implies SPI.
+    To show SPI implies WOP, suppose no $n$ st. $P(n)$ and consider $Q(n) = \neg (P(n))$ with SPI.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 4
+\section* {Lecture 4}
+
+\begin{question}
+    Define the highest common factor $c$ of $a, b \in \naturals$
+\end{question}
+\begin{answer}
+    (i) $c|a$ and $c|b$ \\
+    (ii) $d|a$ and $d|b \Rightarrow d|c$.
+\end{answer}
+\begin{question}
+    Define the highest common factor $c$ of $a, b \in \naturals$
+\end{question}
+\begin{answer}
+    (i) $c|a$ and $c|b$ \\
+    (ii) $d|a$ and $d|b \Rightarrow d|c$.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 5
+\section* {Lecture 5}
+
+\begin{question}
+    State Euclid's algorithm on $a,b \in \naturals$
+\end{question}
+\begin{answer}Note: $r_{i+1} < r_{i} < a$\\
+    $a = q_1 b + r_1$\\
+    $b = q_2 r_1 + r_2$\\
+    $r_1 = q_3 r_2 + r_3$\\
+    $r_{n-2} = q_n r_{n-1} + r_n$\\
+    $r_{n-1} = q_{n+1} r_n + 0$\\
+    Output: $r_n$
+\end{answer}
+
+\begin{question}
+    Prove Euclid's algorithm returns the hcf of its input.
+\end{question}
+\begin{answer} 
+    Prove properties by induction
+\end{answer}
+
+\begin{question}
+    State Bezouts Theorem
+\end{question}
+\begin{answer} 
+    Let $a, b \in \naturals$. Then the equation 
+        $$ax + by = c$$ 
+    has a solution in the integers iff $(a,b) | c$.
+\end{answer}
+
+\begin{question}
+    Prove Bezouts Theorem with Euclid's algorithm
+\end{question}
+\begin{answer} 
+    Run Euclid's algorithm with input $a,b$ to obtain an output $r_n$. At step n, we have
+    $r_n = xr_{n-1} + yr_{n-2}$ for some $x, y \in \integers$. Continuing by induction 
+    we have $\forall i = 2,\ldots, n-1, r_n = xr_ i+ yr_{i-1}$ for some $x,y \in \integers$.
+    Thus $r_n = xa + yb$ for some $x,y \in \integers$ from step 1 and 2.
+\end{answer}
+
+\begin{question}
+    Prove $\forall a,b \in \naturals,\; \exists x,y \in \integers$ s.t. $xa + yb = \text{hcf}(a,b)$ by minimality argument.
+\end{question}
+\begin{answer} 
+    Let $h$ be the least positive linear integer of the form $xa + yb$ for some $x,y \in \integers$.\\
+    Use divisibility and minimality to show it satisfies conditions for hcf.
+\end{answer}
+
+\begin{question}
+    Prove if $p$ is a prime and $p | ab$, then $p|a$ or $p|b$.
+\end{question}
+\begin{answer} 
+    Suppose $p \nmid a$ and show $p | b$ using Bezout.
+\end{answer}
+
+\begin{question}
+    (Fundamental theorem of arithmetic) Prove every natural number $n \leq 2$ is
+    expressible as a product of primes, uniquely up to ordering.
+\end{question}
+\begin{answer} 
+    Factorisation can be shown by induction.\\
+    For uniqueness, suppose two different factorisations, reorder, divide out with $p|ab$ lemma 
+    and use induction.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 6
+\section* {Lecture 6}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 6
+\section* {Lecture 7}
+
+\begin{question}
+    Prove inverses are unique modulo $n$.
+\end{question}
+\begin{answer} 
+    Untangle definitions.
+\end{answer}
+
+\begin{question}
+    Prove $a$ has an inverse modulo $n$ iff $(a,n) = 1$
+\end{question}
+\begin{answer} 
+    Chain of equivalences using Bezout.
+\end{answer}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 8
+\section* {Lecture 8}
+
+\begin{question}
+    State the Chinese Remainder Theorem
+\end{question}
+\begin{answer}
+    Let $m,n$ be coprime and $a,b \in \integers$.
+    Then there is a unique solution modulo $mn$ 
+    to the simultaneous congruences\\
+    $ equiv a \mod m$ and $x \equiv b \mod n$.
+\end{answer}
+
+\begin{question}
+    Prove the Chinese Remainder Theorem
+\end{question}
+\begin{answer}
+    Use Bezout $(m,n) = 1$ to construct an $x$ which satisfies conditions
+    Show uniqueness by considering new solution $y$ taken $\mod m,n$ and combine 
+    algebraically to show it is congruent $\mod mn$.
+\end{answer}
+
+\begin{question}
+    State Fermats Little Theorem
+\end{question}
+\begin{answer}
+    Let $p$ be prime. Then $a^p = a \mod p \forall a \in \integers$.
+    Equivalently, $a^{p-1} \cong 1 \mod p \;\; \forall \; a \not\equiv 0 \mod p$
+\end{answer}
+
+\begin{question}
+    Prove Fermats Little Theorem
+\end{question}
+\begin{answer}
+    If $a \not\equiv 0 \mod p$, then $a$ is a unit $\mod p$.
+    Hence the numbers $a, 2a, \ldots, (p-1)a$ are pairwise incongruent
+    modulo $p$ and $\equiv 0 \mod p$, so they are $1,2,\ldots,p-1$ in some order.
+    Hence 
+        $$a \cdot 2a \cdot 3a \cdot \ldots \cdot (p-1)a \mod p = 1 \cdot 2 \ldots \cdot(p-1)$$
+    or
+        $$a^{p-1} (p-1)! \equiv (p-1)! \mod p$$
+    But we can cancel it to obtain $a^{p-1} \equiv 1 \mod p$.
+\end{answer}
+
+\begin{question}
+    State the Fermat-Euler Theorem
+\end{question}
+\begin{answer}
+    Let $(a,m) = 1$. Then $a^{\phi(m)} \equiv 1 \mod m$.
+\end{answer}
+
+\begin{question}
+    Prove the Fermat-Euler Theorem
+\end{question}
+\begin{answer}
+    Consider the set of units modulo $m$ and apply same rearrangement argument as FLT.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 9
+\section* {Lecture 9}
+
+\begin{question}
+    Let $p$ be a prime. Then $x^2 \equiv 1 \iff x \equiv +1 \mod p$ or $x \equiv -1 \mod p$. 
+\end{question}
+\begin{answer}
+    Convert $p | ab$ lemma into a modular arithmetic statement and apply.
+\end{answer}
+
+\begin{question}
+    State Wilson's theorem
+\end{question}
+\begin{answer}
+    Let $p$ be prime. Then $(p-1)! \equiv -1 \mod p$
+\end{answer}
+
+\begin{question}
+    Prove Wilson's theorem
+\end{question}
+\begin{answer}
+    True for $p = 2$, so assume $p > 2$. Consider pairing up elements and recall
+     $\pm 1$ are the only self-inverse.
+\end{answer}
+
+\begin{question}
+    Let $p$ be an odd prime. Prove that then $-1$ is a square $\iff p \equiv 1 \mod 4$.
+\end{question}
+\begin{answer}
+    For $p \equiv 1 \mod 4$, \\
+    Apply Wilson's theorem  and manipulate to find explicit expression for 
+    element which squares to $-1$.
+    For $p \not \equiv 1 \mod 4$, \\
+    Apply FLT to obtain $1 \equiv -1 \mod p$.
+\end{answer}
+
+\begin{question}
+    Outline the RSA Scheme
+\end{question}
+\begin{answer}
+    I think of two large primes, $p,q$.\\
+    Let $n =pq$ and pick and {\it encoding exponent} $e$ coprime to 
+    $\phi(n) = (p-1)(q-1)$.\\
+    I publish the pair (n,e).\\ \\
+    To send me a message (ie a sequence of numbers) you
+    chop it into pieces/numbers $M < n$ and send me
+    $M^e \mod n$, computed quickly by repeated squaring.\\ \\
+    To decrypt, I work out $d$ st. $ed \equiv 1 \mod \phi(n)$.\\
+    Then I compute $(M^e)^d = M^{k\phi(n) + 1}$ for some $k \in \integers$ \\
+    =$M \mod n$ by Fermat-Euler.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 10
+\section* {Lecture 10}
+
+\begin{question}
+    Prove (a level style) there is no rational $x$ with $x^2 = 2$.
+\end{question}
+\begin{answer}
+    Suppose $x^2 = 2$. We may assume $x>0$ since $(-x)^2 = x^2$. If $x$ is rational,
+    then $x = \frac{a}{b}$ for some $a,b \in \naturals$. 
+    Thus $\frac{a^2}{b^2} =2$, or $a^2 = 2b^2$. But the exponent of 2 in the 
+    prime factorisation is even while the exponent of 2 in $2b^2$ is odd,
+    contradicting the FTA.
+\end{answer}
+
+\begin{question}
+    Prove (constructively) there is no rational $x$ with $x^2 = 2$.
+\end{question}
+\begin{answer}
+    Suppose $x^2 = 2$ for some $x = \frac{a}{b}$ with $a,b \in \naturals$. Then
+    for any $c,d \in \integers$ $cx+d$ is of the form $\frac{e}{b}$ for some
+    $e \in \integers$. Thus if $cx + d > 0$, then $cx + d > \frac{1}{b}$.\\
+    Thus if $cx+d>0$, then $cx+d > \frac{1}{b}$.\\
+    But $0 < x-1 < 1$ since $1 < x <2$.\\
+    So if $n$ is sufficiently large,
+        $$0 < (x-1)^n < \frac{1}{b}$$
+    But for any $n \in \naturals$, $(x-1)^n$ is of the form $cx+d$ for some
+    $c,d \in \integers$, since $x^2 = 2$. This is a contradiction.
+\end{answer}
+
+\begin{question}
+    State the least upper bound axiom.
+\end{question}
+\begin{answer}
+    Given any set S of reals that is non-empty and bounded above, S has
+    a least upper bound.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 11
+\section* {Lecture 11}
+
+\begin{question}
+    State the Axioms of Archimedes
+\end{question}
+\begin{answer}
+    $\naturals$ is not bounded above in $\reals$. \\
+    $\exists n in \naturals$ s.t. $nx > y \; \forall x,y \in \reals$.
+\end{answer}
+
+\begin{question}
+    Prove the Axioms of Archimedes
+\end{question}
+\begin{answer}
+    Suppose supremum of $\naturals$ existed and show a greater $n \in \naturals$ exist.
+\end{answer}
+
+\begin{question}
+    Prove that for all $t > 0$, $\exists n \in \naturals$ with $\frac{1}{n} < t$.
+\end{question}
+\begin{answer}
+    Given $t > 0$, there is an $n > \frac{1}{t}$ by Archamedian property, hence
+    $\frac{1}{n} < t$.
+\end{answer}
+
+\begin{question}
+    Prove that there exists $x \in \reals$ with $x^2 = 2$.
+\end{question}
+\begin{answer}
+    Construct a set, and prove supremum satisfies $x^2=2$.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 12
+\section* {Lecture 12}
+
+\begin{question}
+    What does it mean for the rationals to be dense in $\reals$?
+\end{question}
+\begin{answer}
+    $\forall a < b \in \reals$, $\exists c \in \rationals$ with $a < c < b$.
+\end{answer}
+
+%% Give an intuitive account for this proof
+\begin{question}
+    Prove the rationals are dense in the reals
+\end{question}
+\begin{answer}
+    We may assume that $a \leq 0$. \\ \\
+    By Archimedian property, $\exists n \in \naturals$ with $\frac{1}{n} < b-a$.\\
+    By the Axiom of Archimedes, $\exists N \in \naturals$ s.t. $N > b$.\\
+    Let $T = \{k \in \naturals: \frac{k}{n} \leq b\}$\\
+    then $Nn \in T$, so $T \neq \emptyset$.\\
+    By WOP, T has a least element m. Set c = (m-1)/n.\\
+    Since $m-1 \not \in T, c < b$.\\
+    If $c \leq a$, then $\frac{m}{n} = c + \frac{1}{n} < a+b-a = b$ \\
+    Which is a contradiction, hence $a < c < b$.
+\end{answer}
+
+\begin{question}
+    When do we say that the sequence $a_1, a_2, a_3, \ldots$ tends to
+    the limit $l \in \reals$?
+\end{question}
+\begin{answer}
+    $\forall \epsilon > 0, \exists N \in \naturals$ s.t. $n \leq N$,
+    $|a_n - l| < \epsilon$.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 13
+\section* {Lecture 13}
+
+\begin{question}
+    Prove that every bounded monotonic sequence converges.
+\end{question}
+\begin{answer}
+    Show that sequence converges to supremum.
+\end{answer}
+
+\begin{question}
+    Prove that if $a_n \leq d \; \forall n$ and $a_n \to c$ as $n \to \infty$,
+    $c \leq d$.
+\end{question}
+\begin{answer}
+    Think about this geometrically for intuition, assume for contradiction.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 14
+\section* {Lecture 14}
+
+\begin{question}
+    Does every $x$, $0 \leq x < 1$ have a decimal expansion?
+\end{question}
+\begin{answer}
+    Construct a sequence of $x_k$ such that you can pick a maximal element to
+    generate the decimal expansion of $x$.
+\end{answer}
+
+\begin{question}
+    Prove that if a decimal is periodic, then it is rational.
+\end{question}
+\begin{answer}
+    Find the rational expression for it
+\end{answer}
+
+\begin{question}
+    Prove that if a decimal is rational, then it is periodic.
+\end{question}
+\begin{answer}
+    
+\end{answer}
+
+\begin{question}
+    Prove $e$ is irrational.
+\end{question}
+\begin{answer}
+    Suppose $e = \frac{p}{q}$. This would mean $q!e$ is integral.\\
+    Consider the infinite expansion ot show that $q!e = N + x$ where $N \in \naturals$,
+    and $0 < x < 1$, by bounding with geo series. Contradiction.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 15
+\section* {Lecture 15}
+
+\begin{question}
+    Prove that, for any polynomial $P$, $\exists$ constant $K$ such that
+        $$|P(x) - P(y)| \leq K|x - y| \;\; \forall 0 \leq x,y \leq 1$$.
+\end{question}
+\begin{answer}
+    Suppose
+        $$P(x) = a_d x^d + a_{d-1} x^{d-1} + \cdots + a_1x + a_0$$
+    Consider $P(x) - P(y)$ and factor out $(x-y)$ and bound to find a const.
+\end{answer}
+
+\begin{question}
+    Prove that a non-zero polynomial of degree $d$ has at most $d$ roots.
+\end{question}
+\begin{answer}
+    Induction on number of roots for polynomial of degree $d$, rewrite the polynomial
+    as a product of new root and some polynomial $q(x)$ by long division.
+\end{answer}
+
+\begin{question}
+    Prove the number 
+        $$L = \sum_{n=1}^{\infty}{\frac{1}{10^{n!}}}$$
+    is transcendental.
+\end{question}
+\begin{answer}
+    Suppose $L$ is the root of a polynomial $P$. \\
+    There exists a $K$ such that $|P(x) - P(y)| \leq K|x - y| \;\;
+    \forall 0 \leq x,y \leq 1$. \\
+    do it do it do it do it do it do it do it do it do it do it do it do it do it do it do it do it do it
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 16
+\section* {Lecture 16}
+
+\begin{question}
+    If A is a set and $P$ is a property of (some) elements of A, 
+    how do we write the subset of A comprising of those elements 
+    for which $P(x)$ holds?
+\end{question}
+\begin{answer}
+    $${x \in A: P(x)}$$
+\end{answer}
+
+\begin{question}
+    Write $A \backslash B$ in set notation
+\end{question}
+\begin{answer}
+    $$\{ x \in A: x \not \in B\}$$
+\end{answer}
+
+\begin{question}
+    If $A_1, A_2, A_3, \ldots$ are sets then what is 
+        $$\cap_{n=1}^\infty A_n?$$
+\end{question}
+\begin{answer}
+    $\{x: x \in A_n$ for all $n \in \naturals \}$
+\end{answer}
+
+\begin{question}
+    Prove you cannot form $\{ x: P(x) \}$
+\end{question}
+\begin{answer}
+    Construct $X = \{x: x$ is a set and $x \not \in x \}$,\\
+    and consider whether $X \in X$
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 17
+\section* {Lecture 17}
+
+\begin{question}
+    Define the binomial coefficient $n \choose k$
+\end{question}
+\begin{answer}
+    $${n \choose k} = \big \vert \{ S \subseteq \{1, 2, \ldots, n\}: |S| = k \}|$$
+\end{answer}
+
+\begin{question}
+    State the inclusion-exclusion principle
+\end{question}
+\begin{answer}
+    $$|S_1 \cup S_2 \cup \ldots \cup S_n| = \sum_{|A|=1}|S_a| 
+        - \sum_{|A|=2}|S_A| + \sum_{|A|=3}|S_A| - \ldots
+            + (-1)^{n+1}\sum_{|A|=n}|S_A|$$
+where $S_A = \cap_{i\in A} S_i$
+Equivalently,
+    $$\big \vert \bigcap_{i = 1}^n S_i \big \vert = 
+    \sum_{k=1}^n{(-1)^{k+1}} \mkern-20mu \sum_{\substack{A \subseteq \{1, 2, \ldots, n \} \\ |A| = k}}
+        \big \vert \bigcap_{i \in A} S_i \big \vert.$$
+\end{answer}
+
+\begin{question}
+    Prove the inclusion-exclusion principle.
+\end{question}
+\begin{answer}
+    Suppose $x \in S_i$ $k$ times and prove that it is only counted once via counting.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 18
+\section* {Lecture 18}
+
+\begin{question}
+    Formally define a function $f: A \to B$.
+\end{question}
+\begin{answer}
+    A function from $A$ to $B$ is a subset $f \subseteq A \times B$ such that
+    for all $x \in A$, there is a unique $y \in B$ such that $(x,y) \in f$.
+\end{answer}
+
+\begin{question}
+    When do we say that a function $f: A \to B$ is injective?
+\end{question}
+\begin{answer}
+    $\forall a, a' \in A$, \\
+    $a \not = a' \Rightarrow f(a) \not = f(a')$, or equivalently \\
+    $f(a) = f(a') \Rightarrow a = a'$.
+\end{answer}
+
+\begin{question}
+    When do we say that a function $f: A \to B$ is surjective?
+\end{question}
+\begin{answer}
+    If $\forall b \in B$, $\exists a \in A$ such that $f(a) = b$.
+\end{answer}
+
+\begin{question}
+    What is the definition of the indicator function?
+\end{question}
+\begin{answer}
+    \begin{align*}
+        1_A & \mkern-5mu:  \quad x \to \{0, 1\} \\
+        1_A & = \left\{
+            \begin{array}{ll}
+                1 & \quad x \in A \\
+                0 & \quad x \not \in A
+            \end{array}
+        \right.
+    \end{align*}
+\end{answer}
+
+\begin{question}
+    When do we say that $f: A \to B$ is inverse
+\end{question}
+\begin{answer}
+    If $\exists g: B \to A$ such that \\
+    $g \circ f = \text{id}_A$ and $f \circ g = \text{id}_B$.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 19
+\section* {Lecture 19}
+
+\begin{question}
+    Given $f: A \to B$, when is there a map $g: B \to A$ such that 
+    $g \circ f = \text{id}_A$?
+\end{question}
+\begin{answer}
+    If such a $g$ exists, using $a, a' \in A$ show $f$ injective. Conversely show that
+    $f$ injective means that such a $g$ would exist.
+\end{answer}
+
+\begin{question}
+    Given $f:A \to B$, when is it that a map $g: B \to A$ such that 
+    $f \circ g = \text{id}_B$?
+\end{question}
+\begin{answer}
+    We need $f(g(B)) = B$, so $f$ must be surjective. \\
+    Conversely, if $f$ surjective show that such a $g$ exists.
+\end{answer}
+
+\begin{question}
+    Show that $f: A \to B$ invertible $\iff$ $f$ is bijective.
+\end{question}
+\begin{answer}
+    Consider both conditions on $f \circ g$ and $g \circ f$ and show together
+    they imply bijectivity.
+\end{answer}
+
+\begin{question}
+    Given $f: A \to B$, and $U \in B$, what is the pre-image of U, $f^{-1}(U)$?
+\end{question}
+\begin{answer}
+    $$f^{-1}(U) = \{a \in A: f(a) \in U \}$$
+\end{answer}
+
+\begin{question}
+    What is a relation on a set X?
+\end{question}
+\begin{answer}
+    A subset $R \subseteq X \times X$, usually written $aRb$ for $(a,b) \in R$
+\end{answer}
+
+\begin{question}
+    When is a relation $R$ reflexive?
+\end{question}
+\begin{answer}
+    If $\forall x \in X$, $xRx$.
+\end{answer}
+
+\begin{question}
+    When is a relation $R$ symmetric?
+\end{question}
+\begin{answer}
+    If $\forall x,y \in X$, $xRy \Rightarrow yRx$.
+\end{answer}
+
+\begin{question}
+    When is a relation R transitive?
+\end{question}
+\begin{answer}
+    If $\forall x,y,z \in X$, $xRy$ and $yRz$ $\Rightarrow xRz$.
+\end{answer}
+
+\begin{question}
+    Given a partition of X, define the equivalence relation R where equivalence
+    classes are precisely the parts of the partition
+\end{question}
+\begin{answer}
+    Define $a ~ b$ if $a$ and $b$ lie in the same part.
+\end{answer}
+
+\begin{question}
+    Let $~$ be an equivalence relation on X. Prove the equivalence classes
+    form a partition of X.
+\end{question}
+\begin{answer}
+    Verify properties of a partition.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 20
+\section* {Lecture 20}
+
+\begin{question}
+    Given an equivalence relation $R$ in a set $X$,
+    define the quotient of $X$ by $R$.
+\end{question}
+\begin{answer}
+    $X \backslash R = \{[x]: x \in X\}$
+\end{answer}
+
+\begin{question}
+    Prove that any subset of $\naturals$ is countable.
+\end{question}
+\begin{answer}
+    Apply WOP and remove element continually to produce a sequence $s_n$ of elements
+    for the subset. Either finite or bijection which can be constructed by considering
+    this sequence.
+\end{answer}
+
+\begin{question}
+    Prove that
+    (i) X is countable \\
+    (ii) There is an injection $X \to \naturals$ \\
+    are equivalent statements.
+\end{question}
+\begin{answer}
+    (i) $\Rightarrow$ (ii) plain.\\
+    (ii) implies bijection betwen $S = f(X)$, which is a subset of $\naturals$
+    so there is bijection.
+\end{answer}
+
+\begin{question}
+    Show that (iii) $X = \emptyset$ or there is a
+    surjection $\naturals \to X$ implies (i) X is countable.
+\end{question}
+\begin{answer}
+    If $X \not = \emptyset$ and there is a surjection
+    $f: \naturals \to X$, define $g: X \to \naturals$ by
+    $g(a) = \min f^{-1}(\{a\})$, which exists by WOP. g is injective, so $X$ is
+    countable.
+\end{answer}
+
+\begin{question}
+    Prove any subests of a countable set is countable.
+\end{question}
+\begin{answer}
+    If $Y \subseteq X$ and $X$ is countable, then take the injection $X \to \naturals$ 
+    restricted to $Y$.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 21
+\section* {Lecture 21}
+
+\begin{question}
+    Prove that $\naturals \times \naturals$ is countable by counting over
+    diagonals.
+\end{question}
+\begin{answer}
+    Define $a_1 = (1,1)$ and $a_n$ inductively, by the sequence of coordinates that
+    includes every point $(x,y) \in \naturals \times \naturals$ by counting through diagonals.
+    Prove this is true by induction on $x+y$.
+\end{answer}
+
+\begin{question}
+    Prove, algebraically, that $\naturals \times \naturals$ is countable.
+\end{question}
+\begin{answer}
+    Define 
+    \begin{align*}
+        f\mkern-5mu: \quad & \naturals \times \naturals \to \naturals \\
+                 & (x,y) \to 2^x 3^y
+    \end{align*}
+\end{answer}
+
+\begin{question}
+    Prove that a countable union of countable sets is countable.
+\end{question}
+\begin{answer}
+    Given countable sets $A_1, A_2, A_3, \ldots$, we may list elements of $A_i$ by 
+        $$a_1^{(i)}, a_2^{(i)}, a_3^{(i)}, \ldots$$ 
+    Define 
+    \begin{align*}
+        f \mkern-5mu: \quad &\bigcup_{n \in \naturals} A_n \to \naturals \\
+                 &x \to 2^i 3^j
+    \end{align*}
+    where $x = a_j^{(i)}$ for the least $i$ such that $x \in A_i$. \\
+    This is an injection.
+\end{answer}
+
+\begin{question}
+    Prove that $\reals$ are uncountable.
+\end{question}
+\begin{answer}
+    Cantor's diagonal argument =)
+\end{answer}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 22
+\section* {Lecture 22}
+
+\begin{question}
+    Prove there are uncountably many transcendental numbers.
+\end{question}
+\begin{answer}
+    If $\reals \backslash \algebraics$ were countable, then since $\algebraics$ is countable,
+    $\reals = \reals \backslash \algebraics \cup \algebraics$ would be countable. Contradiction.
+\end{answer}
+
+\begin{question}
+    Prove fora ny set $X$, there is no bijection between $X$ and $\powerset(X)$
+\end{question}
+\begin{answer}
+    Given $f: X \to \powerset(X)$,\\
+    Let $S = \{x \in X: x \not \in f(x) \}$. $S$ does not belong to the image of $f$\\
+    since $\forall x \in X$, $S$ and $f(x)$ differ in the element $x$ and thus $\powerset(X) \not = f(x)$.
+\end{answer}
+
+
+
+
+
+
+
+
+\end{document}
