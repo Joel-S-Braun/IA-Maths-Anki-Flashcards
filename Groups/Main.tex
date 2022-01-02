@@ -14,6 +14,20 @@
 
 \def\bx{\mathbf x}
 \def\by{\mathbf y}
+\def\naturals{\mathbb{N}}
+\def\integers{\mathbb{Z}}
+\def\rationals{\mathbb{Q}}
+\def\algebraics{\mathbb{A}}
+\def\reals{\mathbb{R}}
+\def\complex{\mathbb{C}}
+\def\powerset{\mathcal{P}}
+\def\mobius{\mathcal{M}}
+
+
+\newenvironment{psmallmatrix}
+  {\left(\begin{smallmatrix}}
+  {\end{smallmatrix}\right)}
+
 
 \sectionfont{\color{hotpink}}  % sets colour of sections
 \pagecolor{dgrey}
@@ -44,969 +58,1211 @@
     {} % Theorem head spec (can be left empty, meaning `normal')
 \theoremstyle{answerstyle}
 \newtheorem*{answer}{Answer}
+
+\begin{document}
 \noindent
 
 
-\begin{document}
 %opening
 \title{}
 \author{}
-\section*{ Lecture -1}
-{
-    \begin{question}
-        When is a subgroup K called normal?
-    \end{question}
-    \begin{answer}
-        if $gK = Kg$ for all $g \in G$.
-    \end{answer}
-}
-{
-    \begin{question}
-        Define a permutation on the set X.
-    \end{question}
-    \begin{answer}
-        A bijection $$f: X \to X$$
-    \end{answer}
-}
 
-{
-    \begin{question}
-        What does it mean that $sgn(S_n)$ is well defined?
-    \end{question}
-    \begin{answer}
-        If $$\sigma = \tau_1 \ldots \tau_a$$
-        $$= \tau_1' \ldots \tau_b'$$
+%%    Let $o(g) = m$, and $n \in \naturals$. Prove that
 
-        then $(-1)^a = (-1)^b$.
-    \end{answer}
-}
-{
-    \begin{question}
-        How do we denote the set of all permutations of X?
-    \end{question}
-    \begin{answer}
-        Sym(X)
-    \end{answer}
-}
-{
-    \begin{question}
-        Sketch a geometric proof that the group
-        $D_{2n}$ is $\{e, r, r^2, \ldots, r^{n-1},t, rt, \ldots, r^{n-1}t \}$ 
-        under composition.
-    \end{question}
-    \begin{answer}
-        Let f be a symmetry of P
-        f(1) maps to another vertex of P (say k).
-        Let g be the rotation of f such that f(1) = 1.
-        The vertex adjascent to 1 is either fixed or reflected.
-        If it is fixed, g is the identity, meaning f is a rotation.
-        Otherwise, g is a reflection then a rotation.
-    \end{answer}
-}
-{
-    \begin{question}
-        State the Fermat-Euler Theorem
-    \end{question}
-    \begin{answer}
-        Let $a \in \mathbb{N}, n \in \mathbb{Z}, (a,n) = 1.$
-        $$a^{\phi(n)}  \equiv 1 \mod n$$
-    \end{answer}
-}
-{
-    \begin{question}
-        Show a k-cycle can be written as a product of transpositions
-    \end{question}
-    \begin{answer}
-        $(a_1, a_2, \ldots, a_n) = (a_1, a_2)(a_2, a_3), \ldots(a_{k-2}, a_{k-1})(a_{k-1}, a_k)$.
 
-    \end{answer}
-}
-{
-    \begin{question}
-        What is the index of H in G denoted $\vert G:H \vert$?
-    \end{question}
-    \begin{answer}
-        It is the number of left cosets of H in G.
-    \end{answer}
-}
-{
-    \begin{question}
-        Define (informally) a k-cycle
-    \end{question}
-    \begin{answer}
-        $\sigma = (a_1, a_2, \ldots, a_k)$,
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 1
+\section* {Lecture 1}
+
+\begin{question}
+    What must hold for (G, *) to be a group?
+\end{question}
+\begin{answer}
+    (i) Identity exists \\
+    (ii) Inverse exists\\
+    (iii) (x*y)*z = x*(y*z)\\
+\end{answer}
+
+\begin{question}
+    Sketch a proof for the uniqueness of inverses
+\end{question}
+\begin{answer}
+    Suppose y,z are inverses of x. y = y*e = y*(x*z) and use associativity to show y = z. 
+
+    Motivation: think about this fact is contingent on 
+    - if associativity didn't hold, it'd make sense for there to exist 
+    a left inverse and a right inverse. Therefore, we want to try and 
+    sneak associativity into this. The only way we can do this is by 
+    introducing three terms.
+\end{answer}
+
+\begin{question}
+    Show that the identity element is unique
+\end{question}
+\begin{answer}
+    Formally state what it means for $e$ and $\hat{e}$ to be identities and show that this implies they are equal.
+\end{answer}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 2
+\section* {Lecture 2}
+
+\begin{question}
+    When is a group H cyclic?
+\end{question}
+\begin{answer}
+    If there exists an element h in H such that each element of H is a power of h. 
+\end{answer}
+
+\begin{question}
+    Prove the only subset of Z under addition is nZ
+\end{question}
+\begin{answer}
+    If $H = \{0\} = 0\mathbb{Z}$
+
+    Otherwise, choose $0 < n \in H$ with $n$ minimal. $n\mathbb{Z} \subseteq H$ by closure and inverses. We show $H = n\mathbb{Z}$. Suppose $\exists h \in H \setminus n \mathbb{Z}$, can write $h = nk + h'$, with $h' \in \{1,2,\ldots, n-1\}$
+
+    But $h' = h - nk \in H$, contradicting minimality of n. Thus $H = n\mathbb{Z}$
+\end{answer}
+
+\begin{question}
+    When is the function
+        $$\theta: G \to H$$
+    homomorphism from $(G, *_G)$ to $(H, *_H)$?
+\end{question}
+\begin{answer}
+    $$\theta(x *_G y) = \theta(x) *_H \theta(y)$$
+    $\forall x,y \in G$
+\end{answer}
+
+\begin{question}
+    Let $\theta: G \to H$ be a homomorphism. What is the image of $\theta?$
+\end{question}
+\begin{answer}
+    $\theta(G) = \{\theta(g) : g \in G\}$
+\end{answer}
+
+\begin{question}
+    Prove the image of $\theta(G): G \to H$ is a subgroup of H
+\end{question}
+\begin{answer}
+    Consider axioms
+\end{answer}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 3
+\section* {Lecture 3}
+
+\begin{question}
+    Prove the composition of two homomorphisms is a homomorphism.
+\end{question}
+\begin{answer}
+    Do it.
+\end{answer}
+
+\begin{question}
+    Let $o(g) = m$, and $n \in \naturals$. Prove that
+        $$g^n = e \iff m | n$$
+\end{question}
+\begin{answer}
+    $\Leftarrow$ trivial verification \\
+    $\Rightarrow$ Suppose $g^n = e$ and write $n = qm+r$, $0 \leq r < m$.
+\end{answer}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 4
+\section* {Lecture 4}
+\begin{question}
+    How do we algebraically write $D_{2n}$?
+\end{question}
+\begin{answer}
+    $$D_{2n} = <r,t \vert r^n =e, t^2 = e, trt = r^{-1}>$$
+\end{answer}
+
+\begin{question}
+    Sketch a geometric proof that the group
+    $D_{2n}$ is $\{e, r, r^2, \ldots, r^{n-1},t, rt, \ldots, r^{n-1}t \}$ 
+    under composition.
+\end{question}
+\begin{answer}
+    Let f be a symmetry of P
+    f(1) maps to another vertex of P (say k).
+    Let g be the rotation of f such that f(1) = 1.
+    The vertex adjascent to 1 is either fixed or reflected.
+    If it is fixed, g is the identity, meaning f is a rotation.
+    Otherwise, g is a reflection then a rotation.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 5
+\section* {Lecture 5}
+
+\begin{question}
+    How do we denote the set of all permutations of X?
+\end{question}
+\begin{answer}
+    $\text{Sym}(X)$.
+\end{answer}
+
+\begin{question}
+    What is the symmetric group of degree n?
+\end{question}
+\begin{answer}
+    $$S_n = Sym(\{1, 2, \ldots, n \})$$
+    the set of all permutations of $\{1, 2, \ldots, n\}$.
+\end{answer}
+
+
+\begin{question}
+    Prove Sym(X) is a group under composition.
+\end{question}
+\begin{answer}
+    *closure - composition of bijections forms a bijection \\ 
+    *identity, define $c(x) = x$ for all $x$ in $X$ \\
+    *inverse - $f \in Sym(X)$, since f is a bijection, $f^{-1}$ exists and is a bijection, satisfying $f^{-1} \circ f = e = f^{-1} \circ f$ \\
+    *associativity - composition of functions is associative
+\end{answer}
+
+
+\begin{question}
+    Define (informally) a k-cycle
+\end{question}
+\begin{answer}
+    $\sigma = (a_1, a_2, \ldots, a_k)$,
 mapping $a_1$ to $a_2$, $a_2$ to $a_3, \ldots, a_k$ to $a_1$. It leaves all other elements of $S_n$ fixed.
-    \end{answer}
-}
-{
-    \begin{question}
-        When is a group H cyclic?
-    \end{question}
-    \begin{answer}
-        If there exists an element h in H such that each element of H is a power of h. 
-    \end{answer}
-}
-{
-    \begin{question}
-        When is a group H cyclic?
-    \end{question}
-    \begin{answer}
-        If there exists an element h in H such that each element of H is a power of h. 
-    \end{answer}
-}
-{
-    \begin{question}
-        Let $H \leq G$, $a,b \in G$. Prove\\
-        $a^{-1}b \in H \Rightarrow aH = bH$
-    \end{question}
-    \begin{answer}
-        Suppose $a^{-1}b = k \in H$\\
-        $b = ak \in aH$\\
-        also $b \in bH$\\
-        So $aH = bH$.
-    \end{answer}
-}
-{
-    \begin{question}
-        What is a coset of G?
-    \end{question}
-    \begin{answer}
-        Let $H \leq G$, and $g \in G$. The left coset gH is defined to be
-        $$\{gh: h \in H\}$$, similar for right coset.
-    \end{answer}
-}
-{
-    \begin{question}
-        Sketch a proof of the claim that the map
-        $$\text{sgn}(S_n, \circ) \to (\{ \pm 1\}, \times)$$
-        is a homomorphism (assuming well-defined and non-trivial)
-    \end{question}
-    \begin{answer}
-        Suppose $a,b \in S_n$
-        Writing out a,b as transpositions it follows that sgn(ab) = sgn(a)sgn(b).
-    \end{answer}
-}
-{
-    \begin{question}
-        How do we generate a minimal cycle of a permutation sigma?
-    \end{question}
-    \begin{answer}
-        $a_1 \in \{1, 2, \ldots, n \} = X$ \\
-        Consider $a_1, \sigma(a_1), \sigma^2(a_1), \ldots$ \\
-        Since $X$ is finite, $\exists$ minimal j s.t. $\sigma^j(a_i) \in \{a_1, \sigma(a_1), \ldots, \sigma^{j-1}(a_1) \}$ \\ \\
+\end{answer}
 
-        Claim: $\sigma^j(a_1) = a_1$. \\
-        Since if not, \\
-        $\sigma^j(a_1) = \sigma^i(a_i)$ for $j > i \geq 1$ \\
-        $\sigma^{j-i}(a_1) = a_1$ contradicting minimality of j. \\
 
-    \end{answer}
-}
-{
-    \begin{question}
-        Define (formally) a k-cycle
-    \end{question}
-    \begin{answer}
-        Let $a_1, \ldots a_k$ be distinct integers in $\{1, \ldots n\}$. Suppose $\sigma \in S_n$ and
+\begin{question}
+    Define (formally) a k-cycle
+\end{question}
+\begin{answer}
+    Let $a_1, \ldots a_k$ be distinct integers in $\{1, \ldots n\}$. Suppose $\sigma \in S_n$ and
 
-        $$\sigma(a_i) = a_{i+1}$$
-        $$\sigma(a_k) = a_1$$
+    $$\sigma(a_i) = a_{i+1}$$
+    $$\sigma(a_k) = a_1$$
 
-        for $1 \leq i \leq k-1$, and $\sigma(x) = x, \;\; \forall x \{1, \ldots, n \} / \{a_1, \ldots, a_n\}$.
-    \end{answer}
-}
-{
-    \begin{question}
-        How do we algebraically write $D_{2n}$?
-    \end{question}
-    \begin{answer}
-        $$D_{2n} = <r,t \vert r^n =e, t^2 = e, trt = r^{-1}>$$
-    \end{answer}
-}
-{
-    \begin{question}
-        Let $(G, \star_G), (H, \star_H)$ be groups. When is  $$\theta: G \to H$$ a homomorphism?
-    \end{question}
-    \begin{answer}
-        $$\theta(x \star_G y) = \theta(x) \star_H \theta(y)$$
-$$\forall x,y \in G$$
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove the image of $\theta(G): G \to H$ is a subgroup of H
-    \end{question}
-    \begin{answer}
-        NEED TO CHECK LECTURE NOTES
-    \end{answer}
-}
-{
-    \begin{question}
-        Let $\theta: G \to H$ be a homomorphism. What is the image of $\theta?$
-    \end{question}
-    \begin{answer}
-        $\theta(G) = \{\theta(g) : g \in G\}$
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove that if aH n bH isn't empty, then aH = bH.
-    \end{question}
-    \begin{answer}
-        Let $c$ be an element in the intersection.
-        $c = ak$ for some $k$ in $H$, by writing set definition of $cH$ we see that $cH$ is a improper subset of $aH$.\\ \\
-        Similarly, $a = ck^{-1}$, which is an element of $cH$ \\
-        So $aH$ is a improper subset of $cH$. \\
-        So $aH = cH$. Similarly $cH = bH$ so $aH = bH$.
-    \end{answer}
-}
-{
-    \begin{question}
-        From what lemma does the existence of the alternating group $A_n$ follow from?
-    \end{question}
-    \begin{answer}
-        The map
+    for $1 \leq i \leq k-1$, and $\sigma(x) = x, \;\; \forall x \in \{1, \ldots, n \} / \{a_1, \ldots, a_n\}$.
+\end{answer}
+
+\begin{question}
+    Show that disjoint cycles $\sigma, \tau$ commute
+\end{question}
+\begin{answer}
+    Consider logically what happens and write it algebraically
+\end{answer}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 6
+\section* {Lecture 6}
+
+
+\begin{question}
+    How do we write a permutation $\sigma$ as a product of disjoint cycles?
+\end{question}
+\begin{answer}
+    $a_1 \in \{1, 2, \ldots, n \} = X$ \\
+    Consider $a_1, \sigma(a_1), \sigma^2(a_1), \ldots$ \\
+    Since $X$ is finite, $\exists$ minimal j s.t. $\sigma^j(a_i) \in \{a_1, \sigma(a_1), \ldots, \sigma^{j-1}(a_1) \}$ \\ \\
+
+    Claim: $\sigma^j(a_1) = a_1$. \\
+    Since if not, \\
+    $\sigma^j(a_1) = \sigma^i(a_i)$ for $j > i \geq 1$ \\
+    $\sigma^{j-i}(a_1) = a_1$ contradicting minimality of j. \\
+
+\end{answer}
+
+\begin{question}
+    Show a k-cycle can be written as a product of transpositions
+\end{question}
+\begin{answer}
+    $(a_1, a_2, \ldots, a_n) = (a_1, a_2)(a_2, a_3), \ldots(a_{k-2}, a_{k-1})(a_{k-1}, a_k)$.
+\end{answer}
+
+\begin{question}
+    Let $\sigma, \tau$ be disjoint cycles in $S_n$. Prove $o(\sigma \tau) = \text{lcm}(o(\sigma), o(\tau))$
+\end{question}
+\begin{answer}
+    ($\Leftarrow$)verify, recall $\sigma$ and $\tau$ commute because disjoint \\
+    ($\Rightarrow$) Suppose $o(\tau \sigma) = n$,
+    $$(\sigma \tau)^n = e$$
+    $$\sigma^n \tau^n = e$$
+    But $\sigma, \tau$ move different elements of X,\\
+    So $\sigma^n = e$, $\tau^n = e$\\
+    So $o(\sigma) \vert n$ and $o(\tau) \vert n$\\
+    So $k = \text{lcm}(o(\sigma), o(\tau))$
+\end{answer}
+
+
+\begin{question}
+    What does it mean that $sgn(S_n)$ is well defined?
+\end{question}
+\begin{answer}
+    If $$\sigma = \tau_1 \ldots \tau_a$$
+    $$= \tau_1' \ldots \tau_b'$$
+
+    then $(-1)^a = (-1)^b$.
+\end{answer}
+
+
+\begin{question}
+    Sketch a proof that the function
+
+    sgn: $S_n \to \{\pm 1\}$
+    $\sigma \to \text{sgn}(\sigma)$
+
+    is well-defined.
+\end{question}
+\begin{answer}
+    Given $\tau = (a,b)$ is a transposition, we show $\sigma \tau \mod 2 \cong \sigma + 1$  \\
+    by considering the two cases: a and b are in the same cycle, and a and b are in distinct cycles.  \\
+    In both cases we can rewrite the product of cycles such that the claim holds. \\
+    We know c(identity) = n, so assuming $\sigma$ has two decompositions, we can show a = b mod 2, from which claim holds.
+\end{answer}
+
+
+\begin{question}
+    Suppose (k,l) are in the same cycle within $\sigma$. How do we "factor" $\sigma (k,l)$ into disjoint cycles?
+\end{question}
+\begin{answer}
+    $$(k, a_1, \ldots, a_r,l, b_1, \ldots, b_s)(k,l)$$
+    $$(k, b_1, \ldots, b_s)(l, a_1, \ldots, a_r)$$
+\end{answer}
+
+\begin{question}
+    Suppose (k,l) are in different cycles of $\sigma$. How do we "factor" $\sigma (k,l)$ into disjoint cycles?
+\end{question}
+\begin{answer}
+    $$(k, a_1, \ldots, a_r)(l, b_1, \ldots, b_s)(k, l)$$
+    $$= (k, b_1, b_2, \ldots, b_s, l_1, a_2, \ldots, a_r)$$
+\end{answer}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 7
+\section* {Lecture 7}
+
+\begin{question}
+    Sketch a proof of the claim that the map
 
         $$\text{sgn}(S_n, \circ) \to (\{ \pm 1\}, \times)$$
 
-        is a well-defined and non-trivial homomorphism.
-    \end{answer}
-}
-{
-    \begin{question}
-        Sketch a proof that the function
+    is a well-defined and non-trivial homomorphism. (assuming sgn well defined)
+\end{question}
+\begin{answer}
+    - Well defined since $sgn(S_n)$ is well defined.
+    - $sgn((1,2)) = -1$, so non-trivial. (not just equal to identity)
+\end{answer}
 
-        sgn: $S_n \to \{\pm 1\}$
-        $\sigma \to \text{sgn}(\sigma)$
+\begin{question}
+    Sketch a proof of the claim that the map
+    $$\text{sgn}(S_n, \circ) \to (\{ \pm 1\}, \times)$$
+    is a homomorphism (assuming well-defined and non-trivial)
+\end{question}
+\begin{answer}
+    Suppose $a,b \in S_n$
+    Writing out a,b as transpositions it follows that sgn(ab) = sgn(a)sgn(b).
+\end{answer}
 
-        is well-defined.
-    \end{question}
-    \begin{answer}
-        Given $\tau = (a,b)$ is a transposition, we show $\sigma \tau \mod 2 \cong \sigma + 1$  \\
-        by considering the two cases: a and b are in the same cycle, and a and b are in distinct cycles.  \\
-        In both cases we can rewrite the product of cycles such that the claim holds. \\
-        We know c(identity) = n, so assuming $\sigma$ has two decompositions, we can show a = b mod 2, from which claim holds.
-    \end{answer}
-}
-{
-    \begin{question}
-        Sketch a group-theoretic proof of the Fermat-Euler theorem
-    \end{question}
-    \begin{answer}
-        $R_n = \{1, \ldots, n-1\}$ \\
-        Let $R^*_n = \{a \in R_n: (a,n) = 1\}$ \\
-        $(R^*_n, \times_n)$ is a group\\
+\begin{question}
+    Let $H \leq G$, $a,b \in G$. Prove\\
+    $a^{-1}b \in H \Rightarrow aH = bH$
+\end{question}
+\begin{answer}
+    Suppose $a^{-1}b = k \in H$\\
+    $b = ak \in aH$\\
+    also $b \in bH$\\
+    So $aH = bH$.
+\end{answer}
 
-        so claim follows from Lagrange.
-    \end{answer}
-}
-{
-    \begin{question}
-        What is $GL_2(R)$?
-    \end{question}
-    \begin{answer}
-        The group of all 2x2 matrices with non-zero determinants under multiplication
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove Sym(X) is a group under composition.
-    \end{question}
-    \begin{answer}
-        *closure - composition of bijections forms a bijection \\ 
-        *identity, define $c(x) = x$ for all $x$ in $X$ \\
-        *inverse - $f \in Sym(X)$, since f is a bijection, $f^{-1}$ exists and is a bijection, satisfying $f^{-1} \circ f = e = f^{-1} \circ f$ \\
-        *associativity - composition of functions is associative
-    \end{answer}
-}
-{
-    \begin{question}
-        Sketch a proof for the uniqueness of inverses
-    \end{question}
-    \begin{answer}
-        Suppose y,z are inverses of x. y = y*e = y*(x*z) and use associativity to show y = z. 
+\begin{question}
+    What is a coset of G?
+\end{question}
+\begin{answer}
+    Let $H \leq G$, and $g \in G$. The left coset gH is defined to be
+    $$\{gh: h \in H\}$$, similar for right coset.
+\end{answer}
 
-        Motivation: think about this fact is contingent on 
-        - if associativity didn't hold, it'd make sense for there to exist 
-        a left inverse and a right inverse. Therefore, we want to try and 
-        sneak associativity into this. The only way we can do this is by 
-        introducing three terms.
-    \end{answer}
-}
-{
-    \begin{question}
-        What is the symmetric group of degree n?
-    \end{question}
-    \begin{answer}
-        $$S_n = Sym(\{1, 2, \ldots, n \})$$
-        the set of all permutations of $\{1, 2, \ldots, n\}$.
-    \end{answer}
-}
-{
-    \begin{question}
-        How do we define a rotation r in $D_{2n}$?
-    \end{question}
-    \begin{answer}
-        $$r: P \mapsto P$$
-        $$z \mapsto e^{2\pi i /n} z$$
-    \end{answer}
-}
-{
-    \begin{question}
-        Let $H \leq G$, $a,b \in G$. Prove
-        $aH = bH \rightarrow a^{-1}b \in H$
-    \end{question}
-    \begin{answer}
-        $b \in bH = aH$
-        $b = ah$ for some $h \ in H$
-        $a^{-1}b = h \in H$
-    \end{answer}
-}
-{
-    \begin{question}
-        Define a binary operation
-    \end{question}
-    \begin{answer}
-        A binary operation * on a set X is a way of combining two elements of X to give another element of X.
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove that the inverse of $a \in R^*_n$ is in $R^*_n$
-    \end{question}
-    \begin{answer}
-        Claim follows from Bezout on (a,n)=1 and rearranging.
-    \end{answer}
-}
-{
-    \begin{question}
-        Sketch a proof of Lagranges corollary.
-    \end{question}
-    \begin{answer}
-        Apply Lagranges theorem to the subgroup <g> of G.
-    \end{answer}
-}
-{
-    \begin{question}
-        State Lagranges corollary
-    \end{question}
-    \begin{answer}
-        G is a finite group and $g \in G$. Then $o(g) \big \vert \vert G \vert$.
-         In particular, $g^{\vert G \vert} = e$.
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove Lagrange's theorem.
-    \end{question}
-    \begin{answer}
-        G is partitioned into k distinct cosets of H. Each coset is the same size. So $\vert G\vert$ = $\vert H\vert$ k.
-    \end{answer}
-}
-{
-    \begin{question}
-        Sketch a proof of the claim that the map
 
-        $$\text{sgn}(S_n, \circ) \to (\{ \pm 1\}, \times)$$
+\begin{question}
+    What is the index of H in G denoted $\vert G:H \vert$?
+\end{question}
+\begin{answer}
+    It is the number of left cosets of H in G.
+\end{answer}
 
-        is a well-defined and non-trivial
-    \end{question}
-    \begin{answer}
-        - Well defined since $sgn(S_n)$ is well defined.
-        - $sgn((1,2)) = -1$, so non-trivial. (not just equal to identity)
-    \end{answer}
-}
-{
-    \begin{question}
-        Suppose (k,l) are in the same cycle within $\sigma$. How do we "factor" $\sigma (k,l)$ into disjoint cycles?
-    \end{question}
-    \begin{answer}
-        $$(k, a_1, \ldots, a_r,l, b_1, \ldots, b_s)(k,l)$$
-        $$(k, b_1, \ldots, b_s)(l, a_1, \ldots, a_r)$$
-    \end{answer}
-}
-{
-    \begin{question}
-        Suppose (k,l) are in different cycles of $\sigma$. How do we "factor" $\sigma (k,l)$ into disjoint cycles?
-    \end{question}
-    \begin{answer}
-        $$(k, a_1, \ldots, a_r)(l, b_1, \ldots, b_s)(k, l)$$
-        $$= (k, b_1, b_2, \ldots, b_s, l_1, a_2, \ldots, a_r)$$
-    \end{answer}
-}
-{
-    \begin{question}
-        How do we define a reflection t in $D_2n$?
-    \end{question}
-    \begin{answer}
-        
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove the only subset of Z under addition is nZ
-    \end{question}
-    \begin{answer}
-        If $H = \{0\} = 0\mathbb{Z}$
+\begin{question}
+    What is $|G:H|$ for finite G,H in terms of the order of G and H?
+\end{question}
+\begin{answer}
+    $|G:H| = |G|/|H|$.
+\end{answer}
 
-        Otherwise, choose $0 < n \in H$ with $n$ minimal. $n\mathbb{Z} \subseteq H$ by closure and inverses. We show $H = n\mathbb{Z}$. Suppose $\exists h \in H \setminus n \mathbb{Z}$, can write $h = nk + h'$, with $h' \in \{1,2,\ldots, n-1\}$
+\begin{question}
+    Prove that if $aH \cap bH$ isn't empty, then $aH = bH$.
+\end{question}
+\begin{answer}
+    Let $c$ be an element in the intersection.
+    $c = ak$ for some $k$ in $H$, by writing set definition of $cH$ we see that $cH$ is a improper subset of $aH$.\\ \\
+    Similarly, $a = ck^{-1}$, which is an element of $cH$ \\
+    So $aH$ is a improper subset of $cH$. \\
+    So $aH = cH$. Similarly $cH = bH$ so $aH = bH$.
+\end{answer}
 
-        But $h' = h - nk \in H$, contradicting minimality of n. Thus $H = n\mathbb{Z}$
-    \end{answer}
-}
-{
-    \begin{question}
-        Show that the identity element is unique
-    \end{question}
-    \begin{answer}
-        Formally state what it means for $e$ and $\hat{e}$ to be identities and show that this implies they are equal.
-    \end{answer}
-}
-{
-    \begin{question}
-        What is $|G:H|$ for finite G,H in terms of the order of G and H?
-    \end{question}
-    \begin{answer}
-        $|G:H| = |G|/|H|$.
-    \end{answer}
-}
-{
-    \begin{question}
-        What does Lagrange's Theorem state?
-    \end{question}
-    \begin{answer}
-        Let H be a subgroup of the finite group G. Then the order of H divides the order of G.
-    \end{answer}
-}
-{
-    \begin{question}
-        Let $\sigma, \tau$ be disjoint cycles in $S_n$. Prove $o(\sigma \tau) = \text{lcm}(o(\sigma), o(\tau))$
-    \end{question}
-    \begin{answer}
-        ($\Leftarrow$)verify, recall $\sigma$ and $\tau$ commute because disjoint \\
-        ($\Rightarrow$) Suppose $o(\tau \sigma) = n$,
-        $$(\sigma \tau)^n = e$$
-        $$\sigma^n \tau^n = e$$
-        But $\sigma, \tau$ move different elements of X,\\
-        So $\sigma^n = e$, $\tau^n = e$\\
-        So $o(\sigma) \vert n$ and $o(\tau) \vert n$\\
-        So $k = \text{lcm}(o(\sigma), o(\tau))$
-    \end{answer}
-}
-{
-    \begin{question}
-        What must hold for (G, *) to be a group?
-    \end{question}
-    \begin{answer}
-        (i) Identity exists
-        (ii) Inverse exists
-        (ii) (x*y)*z = x*(y*z)
-    \end{answer}
-}
-{
-    \begin{question}
-        What is $SL_2(R)$? (special linear)
-    \end{question}
-    \begin{answer}
-        The set of all 2x2 matrices with determinant 1 under multiplication
-    \end{answer}
-}
 
-{
-    \begin{question}
-        (Sketch) proof that $K \trianglelefteq G$ means $G \ K$ exists
-    \end{question}
-    \begin{answer}
-        Check coset multiplication is well defined, ie. that two cosets multiplied always give
-        the same result (this <=> normal). Verify closure, identity and inverse.
-    \end{answer}
-}
+\begin{question}
+    Let $H \leq G$, $a,b \in G$. Prove
+    $aH = bH \rightarrow a^{-1}b \in H$
+\end{question}
+\begin{answer}
+    $b \in bH = aH$
+    $b = ah$ for some $h \ in H$
+    $a^{-1}b = h \in H$
+\end{answer}
 
-{
-    \begin{question}
-        What is the first isomorphism theorem?
-    \end{question}
-    \begin{answer}
-        Let G, H be groups and $$\theta: G \to H$$ a group homomorphism.
-        Then $Im \theta \leq H$, $Ker \Theta \trianglelefteq G$ \\
-        and $G \backslash Ker \theta \cong Im \theta$
-    \end{answer}
-}
+\begin{question}
+    What does Lagrange's Theorem state?
+\end{question}
+\begin{answer}
+    Let H be a subgroup of the finite group G. Then the order of H divides the order of G.
+\end{answer}
 
-{
-    \begin{question}
-        What is the first isomorphism theorem?
-    \end{question}
-    \begin{answer}
-        Let G, H be groups and $$\theta: G \to H$$ a group homomorphism.
-        Then $Im \theta \leq H$, $Ker \Theta \trianglelefteq G$ \\
-        and $G \backslash Ker \theta \cong Im \theta$
-    \end{answer}
-}
+\begin{question}
+    Prove Lagrange's theorem.
+\end{question}
+\begin{answer}
+    G is partitioned into k distinct cosets of H. Each coset is the same size. So $\vert G\vert$ = $\vert H\vert$ k.
+\end{answer}
+
+\begin{question}
+    Sketch a proof of Lagranges corollary.
+\end{question}
+\begin{answer}
+    Apply Lagranges theorem to the subgroup $\rangle g \langle$ of G.
+\end{answer}
+
+\begin{question}
+    State Lagranges corollary
+\end{question}
+\begin{answer}
+    G is a finite group and $g \in G$. Then $o(g) \big \vert \vert G \vert$.
+     In particular, $g^{\vert G \vert} = e$.
+\end{answer}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 8
+\section* {Lecture 8}
+
+
+\begin{question}
+    When is a subgroup K called normal?
+\end{question}
+\begin{answer}
+    if $gK = Kg$ for all $g \in G$.
+\end{answer}
+
+
+\begin{question}
+    State the Fermat-Euler Theorem
+\end{question}
+\begin{answer}
+    Let $a \in \mathbb{N}, n \in \mathbb{Z}, (a,n) = 1.$
+    $$a^{\phi(n)}  \equiv 1 \mod n$$
+\end{answer}
+
+
+\begin{question}
+    Prove that the inverse of $a \in R^*_n$ is in $R^*_n$
+\end{question}
+\begin{answer}
+    Claim follows from Bezout on (a,n)=1 and rearranging.
+\end{answer}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 9
+\section* {Lecture 9}
+
+\begin{question}
+    What is the first isomorphism theorem?
+\end{question}
+\begin{answer}
+    Let G, H be groups and $$\theta: G \to H$$ a group homomorphism.
+    Then $\text{Im} \theta \leq H$, $\text{Ker} \theta \trianglelefteq G$ \\
+    and $G \backslash \text{Ker} \theta \cong \text{Im} \theta$
+\end{answer}
+
+\begin{question}
+    (Sketch) proof that $K \trianglelefteq G$ means $G \backslash K$ exists
+\end{question}
+\begin{answer}
+    Check coset multiplication is well defined, ie. that two cosets multiplied always give
+    the same result (this $\iff$ normal). Verify closure, identity and inverse.
+\end{answer}
+
+
+\begin{question}
+    Prove the 1st isomorphism theorem
+\end{question}
+\begin{answer}
+    Construct an isomorphism $\phi$
+    $$G \backslash \text{Ker}\theta \to \text{Im} \theta$$
+
+    Let $K = \text{Ker}\theta,$ $$gK \to \theta(g)$$
+    Prove $\phi$ is well-defined, homomorphism and bijection.
+\end{answer}
+
+
+
+
+
 
 \section*{Lecture 10}
-{
-    \begin{question}
-        What is a simple group?
-    \end{question}
-    \begin{answer}
-        A group with no non-trivial subgroup.
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove the 1st isomorphism theorem
-    \end{question}
-    \begin{answer}
-        Construct an isomorphism $\phi$
-        $$G \backslash \text{Ker}\theta \to \text{Im} \theta$$
-    
-        Let $K = \text{Ker}\theta,$ $$gK \to \theta(g)$$
-        Prove $\phi$ is well-defined, homomorphism and bijection.
-    \end{answer}
-}
 
-{
-    \begin{question}
-        Prove that a homomorphism $\theta: G \to H$ is injective iff
-         $$\text{Ker} \theta = \{ e \}$$
-    \end{question}
-    \begin{answer}
-        Consider both directions to show it is injective.
-    \end{answer}
-}
+\begin{question}
+    What is a simple group?
+\end{question}
+\begin{answer}
+    A group with no non-trivial normal subgroups.
+\end{answer}
+
+\begin{question}
+    Prove that a homomorphism $\theta: G \to H$ is injective iff
+        $$\text{Ker} \theta = \{ e \}$$
+\end{question}
+\begin{answer}
+    Consider both directions to show it is injective.
+\end{answer}
+
+
+\begin{question}
+    (i) Let $N \trianglelefteq G$, $H \leq G$. Prove that then $NH \leq G$. \\
+    (ii) Let $N \trianglelefteq G$, $M \trianglelefteq G$, prove then $NM \trianglelefteq G$.
+\end{question}
+\begin{answer}
+    diy
+\end{answer}
+
+
+
+
+
+
+
 
 \section* {Lecture 11}
 
-{
-    \begin{question}
-        Let G be a group with subgroups H and K. 
-    \end{question}
-    \begin{answer}
-        Consider both directions to show it is injective.
-    \end{answer}
-}
 
-{
-    \begin{question}
-        Prove that if, \\
-        (i) each elem of G can be written as hk ($h \in H$, $k \in K$)\\
-        (ii) $H \cap K = \{ e\}$\\
-        (iii) $hk = kh \forall k \in K, h \in H$, \\
-        then \\
-        $G \cong H \times K$
-    \end{question}
-    \begin{answer}
-        Show the map $$\theta: H \times K \to G$$
-        $$\theta (h,k) \to hk$$
-        is an isomorphism. 
-    \end{answer}
-}
+\begin{question}
+    Let $G$ be a group with subgroups $H$ and $K$. 
+\end{question}
+\begin{answer}
+    Consider both directions to show it is injective.
+\end{answer}
 
-{
-    \begin{question}
-        There are alternate, equivalent definitions of internal direct product. \\
-        Show that \\
-        (i) each elem of G can be written as hk ($h \in H$, $k \in K$)\\
-        (ii) $H \cap K = \{ e\}$\\
-        (iii) $hk = kh \forall k \in K, h \in H$, \\
-        is equivalent to
-        (i)' $H \trianglelefteq G, K \trianglelefteq G$
-        (ii)' $H \cap K = \{ e\}$\\
-        (iii) HK = G.
-    \end{question}
-    \begin{answer}
-        $\Rightarrow$ use (iii) to show (i)' and (i) implies (iii)'\\
-        $\Leftarrow$ Use (i)' to show (iii), (i) immediate from (iii)
-    \end{answer}
-}
+\begin{question}
+    Prove that if, \\
+    (i) each elem of G can be written as hk ($h \in H$, $k \in K$)\\
+    (ii) $H \cap K = \{ e\}$\\
+    (iii) $hk = kh \forall k \in K, h \in H$, \\
+    then \\
+    $G \cong H \times K$
+\end{question}
+\begin{answer}
+    Show the map $$\theta: H \times K \to G$$
+    $$\theta (h,k) \to hk$$
+    is an isomorphism. 
+\end{answer}
+
+\begin{question}
+    There are alternate, equivalent definitions of internal direct product. \\
+    Show that \\
+    (i) each elem of G can be written as hk ($h \in H$, $k \in K$)\\
+    (ii) $H \cap K = \{ e\}$\\
+    (iii) $hk = kh \forall k \in K, h \in H$, \\
+    is equivalent to
+    (i)' $H \trianglelefteq G, K \trianglelefteq G$
+    (ii)' $H \cap K = \{ e\}$\\
+    (iii) HK = G.
+\end{question}
+\begin{answer}
+    $\Rightarrow$ use (iii) to show (i)' and (i) implies (iii)'\\
+    $\Leftarrow$ Use (i)' to show (iii), (i) immediate from (iii)
+\end{answer}
+
+
+
+
+
 
 \section* {Lecture 12}
-{
-    \begin{question}
-        Classify groups of order 6 up to isomorphism.
-    \end{question}
-    \begin{answer}
-        Consider order of elements with lagrange. if $o(g) = 6$, then $G \cong C_6$.\\
-        Can't have all elems order 2, since $|G|$ isn't a power of two.\\
-        We always have an element $a$ of order 3. ($g^2$ if o(g) = 6).\\
-        Consider $b \in G \backslash \langle a \rangle$; $b^2 \in \langle a \rangle$ \\
-        $bab^{-1} \in \langle a \rangle$ and consider cases.
-    \end{answer}
-}
 
-{
-    \begin{question}
-        Classify groups of order 8 up to isomorphism
-    \end{question}
-    \begin{answer}
-        If all elems order 2, then we have $C_2 \times C_2 \times C_2$. Prove by quotienting out\\
-        If an elem has order 8, then $C_8$.\\
-        Let $a$ have order 4. Consider $b \in G \backslash \langle a \rangle$.\\
-        $b^2 \in \langle a \rangle$\\
-        If $b^2 = a$ or $a^3$, then $o(b) = 8$, so $C_8$.\\
-        Consider $bab^{-1} = a^{i}$, and evaluate $b^2 a b^{-2}$ in two ways to show $i = \pm 1$.\\
-        Consider the four cases in $i$ and $b^2$ to get groups.
-    \end{answer}
-}
+\begin{question}
+    Classify groups of order 6 up to isomorphism.
+\end{question}
+\begin{answer}
+    Consider order of elements with lagrange. if $o(g) = 6$, then $G \cong C_6$.\\
+    Can't have all elems order 2, since $|G|$ isn't a power of two.\\
+    We always have an element $a$ of order 3. ($g^2$ if o(g) = 6).\\
+    Consider $b \in G \backslash \langle a \rangle$; $b^2 \in \langle a \rangle$ \\
+    $bab^{-1} \in \langle a \rangle$ and consider cases.
+\end{answer}
+
+
+\begin{question}
+    Classify groups of order 8 up to isomorphism
+\end{question}
+\begin{answer}
+    If all elems order 2, then we have $C_2 \times C_2 \times C_2$. Prove by quotienting out\\
+    If an elem has order 8, then $C_8$.\\
+    Let $a$ have order 4. Consider $b \in G \backslash \langle a \rangle$.\\
+    $b^2 \in \langle a \rangle$\\
+    If $b^2 = a$ or $a^3$, then $o(b) = 8$, so $C_8$.\\
+    Consider $bab^{-1} = a^{i}$, and evaluate $b^2 a b^{-2}$ in two ways to show $i = \pm 1$.\\
+    Consider the four cases in $i$ and $b^2$ to get groups.
+\end{answer}
+
+
+
+
+
+
+
 
 \section*{Lecture 13}
-{
-    \begin{question}
-        Define a group action $\phi$.
-    \end{question}
-    \begin{answer}
-        G acts on X with the map\\
-        $\phi: G \times X \to X$\\
-        $(g, x) \to \phi(g,x) = g(x)$ \\
-        such that \\
-        (1) closure (implied by notation)
-        (2) gh(x) = g(h(x))
-        (3) identity acting on x is sent to x
-    \end{answer}
-}
+
+\begin{question}
+    Define a group action $\phi$.
+\end{question}
+\begin{answer}
+    G acts on X with the map\\
+    $\phi: G \times X \to X$\\
+    $(g, x) \to \phi(g,x) = g(x)$ \\
+    such that \\
+    (1) closure (implied by notation)
+    (2) gh(x) = g(h(x))
+    (3) identity acting on x is sent to x
+\end{answer}
+
 \section*{Lecture 14}
-{
-    \begin{question}
-        Define a group action in terms of Sym(X)
-    \end{question}
-    \begin{answer}
-        If G is a group and X is a set such that $$\Phi: G \to \text{Sym}(X)$$ 
-        is a group homomorphism, then
-        $$\phi: G \times X \to X$$
-        $$(g, x) \to \phi_g(x)$$
-        where $\Phi(g) = \phi_g$, is a group action.
-    \end{answer}
-}
-{
-    \begin{question}
-        What is a faithful action?
-    \end{question}
-    \begin{answer}
-        $\text{Ker}\Phi = \{e\}$; the only $x$ acted to the identity is the identity.
-    \end{answer}
-}
-{
-    \begin{question}
-        What does Cayley's theorem state?
-    \end{question}
-    \begin{answer}
-        Every group is isomorphic to a subgroup of Sym(X) for some X.
-    \end{answer}
 
-    \begin{question}
-        Prove Cayley's theorem
-    \end{question}
-    \begin{answer}
-        Consider the left regular action.
-        $$\Phi: G \times G \to G$$
-        $$(g,h) \to gh$$
-        This action is faithful (show), so we have an injective homomorphism
-        $$\Phi: G \to \text{Sym}(G)$$
-        So $G \cong \text{Im}\Phi \leq \text{Sym}(G)$ as required.
-    \end{answer}
+\begin{question}
+    Define a group action in terms of Sym(X)
+\end{question}
+\begin{answer}
+    If G is a group and X is a set such that $$\Phi: G \to \text{Sym}(X)$$ 
+    is a group homomorphism, then
+    $$\phi: G \times X \to X$$
+    $$(g, x) \to \phi_g(x)$$
+    where $\Phi(g) = \phi_g$, is a group action.
+\end{answer}
 
-    \begin{question}
-        Define the orbit of $x \in X$
-    \end{question}
-    \begin{answer}
-        $$\text{Orb}_G(x) = \{g(x): g \in G \} \subseteq X$$
-        The orbit of $x$ is the set of points in X that it can map to.
-    \end{answer}
-}
+\begin{question}
+    What is a faithful action?
+\end{question}
+\begin{answer}
+    $\text{Ker}\Phi = \{e\}$; the only $x$ acted to the identity is the identity.
+\end{answer}
+
+\begin{question}
+    What does Cayley's theorem state?
+\end{question}
+\begin{answer}
+    Every group is isomorphic to a subgroup of Sym(X) for some X.
+\end{answer}
+
+\begin{question}
+    Prove Cayley's theorem
+\end{question}
+\begin{answer}
+    Consider the left regular action.
+    $$\Phi: G \times G \to G$$
+    $$(g,h) \to gh$$
+    This action is faithful (show), so we have an injective homomorphism
+    $$\Phi: G \to \text{Sym}(G)$$
+    So $G \cong \text{Im}\Phi \leq \text{Sym}(G)$ as required.
+\end{answer}
+
+\begin{question}
+    Define the orbit of $x \in X$
+\end{question}
+\begin{answer}
+    $$\text{Orb}_G(x) = \{g(x): g \in G \} \subseteq X$$
+    The orbit of $x$ is the set of points in X that it can map to.
+\end{answer}
+
 \section*{Lecture 15}
-{
-    \begin{question}
-        Define a transitive action
-    \end{question}
-    \begin{answer}
-        G acts transitively on X if for any $x \in X$, $\text{Orb}_G(x) = X$.
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove the distinct G-orbits form a partition of X.
-    \end{question}
-    \begin{answer}
-        Suppose $z \in \text{Orb}_G(x) \cap \text{Orb}_G(y)$.\\
-        Show $ \text{Orb}_G(x) = \text{Orb}_G(z) = \text{Orb}_G(y)$.
-    \end{answer}
-}
-{
-    \begin{question}
-        Show that $\text{Orb}_G(x)$ is invariant, i.e. 
-        $$g(\text{Orb}_G(x)) \subseteq \text{Orb}_G(x).$$
-    \end{question}
-    \begin{answer}
-        just do it
-    \end{answer}
-}
-{
-    \begin{question}
-        Show that G is transitive on $\text{Orb}_G(x)$
-    \end{question}
-    \begin{answer}
-        this means any element in $\text{Orb}_G(x)$ can go to any other element in $\text{Orb}_G(x)$. construct this
-    \end{answer}
-}
-{
-    \begin{question}
-        Define the stabilizer of x in G
-    \end{question}
-    \begin{answer}
-         $\text{Stab}_G(x) = \{g \in G: g(x) = x\}$
-    \end{answer}  
-}
-{
-    \begin{question}
-        Prove $\text{Stab}_G(x)$ is a subgroup of G.
-    \end{question}
-    \begin{answer}
-        just do it
-    \end{answer}  
-}
-{
-    \begin{question}
-        Prove the orbit-stabilizer theorem.
-    \end{question}
-    \begin{answer}
-        We prove that the index of $\text{Stab}_G(x)$ is $| \text{Orb}_G(x)|$. \\
-        Consider the map
-        $$\theta: \text{Orb}_G(x) \to (G:\text{Stab}_G(x))$$
-        $$g(x) \to g \text{Stab}_G(x)$$
-        Now prove this is a well-defined bijection.
-    \end{answer}  
-}
+
+\begin{question}
+    Define a transitive action
+\end{question}
+\begin{answer}
+    G acts transitively on X if for any $x \in X$, $\text{Orb}_G(x) = X$.
+\end{answer}
+
+\begin{question}
+    Prove the distinct G-orbits form a partition of X.
+\end{question}
+\begin{answer}
+    Suppose $z \in \text{Orb}_G(x) \cap \text{Orb}_G(y)$.\\
+    Show $ \text{Orb}_G(x) = \text{Orb}_G(z) = \text{Orb}_G(y)$.
+\end{answer}
+
+\begin{question}
+    Show that $\text{Orb}_G(x)$ is invariant, i.e. 
+    $$g(\text{Orb}_G(x)) \subseteq \text{Orb}_G(x).$$
+\end{question}
+\begin{answer}
+    just do it
+\end{answer}
+
+\begin{question}
+    Show that G is transitive on $\text{Orb}_G(x)$
+\end{question}
+\begin{answer}
+    this means any element in $\text{Orb}_G(x)$ can go to any other element in $\text{Orb}_G(x)$. construct this
+\end{answer}
+
+\begin{question}
+    Define the stabilizer of x in G
+\end{question}
+\begin{answer}
+        $\text{Stab}_G(x) = \{g \in G: g(x) = x\}$
+\end{answer}  
+
+\begin{question}
+    Prove $\text{Stab}_G(x)$ is a subgroup of G.
+\end{question}
+\begin{answer}
+    just do it
+\end{answer}  
+
+\begin{question}
+    Prove the orbit-stabilizer theorem.
+\end{question}
+\begin{answer}
+    We prove that the index of $\text{Stab}_G(x)$ is $| \text{Orb}_G(x)|$. \\
+    Consider the map
+    $$\theta: \text{Orb}_G(x) \to (G:\text{Stab}_G(x))$$
+    $$g(x) \to g \text{Stab}_G(x)$$
+    Now prove this is a well-defined bijection.
+\end{answer}  
+
 
 \section* {Lecture 16}
 miao
 \section* {Lecture 17}
-{
-    \begin{question}
-        State Cauchy's theorem.
-    \end{question}
-    \begin{answer}
-        Let G be a finite group and $p$ a prime that divides $|G|$. Then there 
-        exists an element in $G$ of order $p$.
-    \end{answer}  
-}
-{
-    \begin{question}
-        Prove Cauchy's theorem.
-    \end{question}
-    \begin{answer}
-        $$X = \{ (x_1, x_2, \ldots, x_p): x_1 x_2 \cdots x_p = e, x_i \in G \}$$
-        Let $H = \lbrace h: h^p = e \rbrace \cong C_p$
-        which acts on X as follows
-        $$H \times X \to X$$
-        $$(h, (x_1,\ldots , x_p)) \to (x_2, x_3, \ldots, x_p, x_1)$$
-        In general $$(h^i, (x_1,x_2, \ldots, x_p)) \to (x_{1+i}, x_{2+i}, \ldots, x_{p+i})$$
-        With suffix $k$ taken $(k-1 \mod p) +1$. \\
-        Check this is a group action. Using the fact $|\text{Orb}_H(\bar{x})| = 1$ or $p$ (by O/S),
-        that $$p \; \Big\vert\; \sum_{\text{distinct orbits}}{\text{Orb}_H}(\bar{x}),$$ and that 
-        $$\text{Orb}_H(e,e, \ldots e)) = 1$$ to show that 
-        $\bar{x} \neq e$ exists such that $$\text{Orb}_H(\bar{x}) = 1, \; \bar{x} = (x, x, \ldots x)$$
-        meaning $x^n = e$.
-    \end{answer}  
-}
-{
-    \begin{question}
-        What is the conjugacy action?
-    \end{question}
-    \begin{answer}
-        $$G \times G \to G$$
-        $$(g, h) \to ghg^{-1}$$
-    \end{answer}
-}
-{
-    \begin{question}
-        Given $z \in Z(G)$, what is $\text{ccl}_G(z)$?
-    \end{question}
-    \begin{answer}
-        1
-    \end{answer}
-}
-{
-    \begin{question}
-        Write $Z(G)$ in terms of the centralizers in $G$.
-    \end{question}
-    \begin{answer}
-        $Z(G) = \bigcap_{h \in G} C_G(h)$
-    \end{answer}
-}
-{
-    \begin{question}
-        How can we relate the order of two elements in the same conjugacy class
-    \end{question}
-    \begin{answer}
-        They are equal
-    \end{answer}
-}
-{
-    \begin{question}
-        What is the orbit and stabilizer of the conjugacy action?
-    \end{question}
-    \begin{answer}
-        The orbit are conjugacy classes and the stabilizers are called centralizers.
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove that if $|G| = p^n$ for some prime $p$, then $Z(G)$ is non-trivial.
-    \end{question}
-    \begin{answer}
-        $$G = \bigcup_{\text{distinct conj classes}} \text{ccl}_G(x)$$
-        By Orbit-Stabilizer theorem, $\text{ccl}_G(x) \; \big \vert \; |G| = p^n$ \\
-        So $|\text{ccl}_G(x)| = 1$ or $p\; \big \vert \; |\text{ccl}_G(x)|$\\
-        But $$|G| = \sum_{x \in Z(G)}{\text{ccl}_G(x)} 
-            + \sum_{\text{distinct classes w/} p\big\vert\text{ccl}_G(x)} {\text{ccl}_G(x)}$$
-        So $$p\; \big \vert\; \sum_{x \in Z(G)}{\text{ccl}_G(x)} = Z(G)$$ so $|Z(G)| > 1$.
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove that if $G \big\backslash Z(G)$ is cyclic, then G is abelian.
-    \end{question}
-    \begin{answer}
-        just do it lolololol
-    \end{answer}
-}
+
+\begin{question}
+    State Cauchy's theorem.
+\end{question}
+\begin{answer}
+    Let G be a finite group and $p$ a prime that divides $|G|$. Then there 
+    exists an element in $G$ of order $p$.
+\end{answer}  
+
+\begin{question}
+    Prove Cauchy's theorem.
+\end{question}
+\begin{answer}
+    $$X = \{ (x_1, x_2, \ldots, x_p): x_1 x_2 \cdots x_p = e, x_i \in G \}$$
+    Let $H = \lbrace h: h^p = e \rbrace \cong C_p$
+    which acts on X as follows
+    $$H \times X \to X$$
+    $$(h, (x_1,\ldots , x_p)) \to (x_2, x_3, \ldots, x_p, x_1)$$
+    In general $$(h^i, (x_1,x_2, \ldots, x_p)) \to (x_{1+i}, x_{2+i}, \ldots, x_{p+i})$$
+    With suffix $k$ taken $(k-1 \mod p) +1$. \\
+    Check this is a group action. Using the fact $|\text{Orb}_H(\bar{x})| = 1$ or $p$ (by O/S),
+    that $$p \; \Big\vert\; \sum_{\text{distinct orbits}}{\text{Orb}_H}(\bar{x}),$$ and that 
+    $$\text{Orb}_H(e,e, \ldots e)) = 1$$ to show that 
+    $\bar{x} \neq e$ exists such that $$\text{Orb}_H(\bar{x}) = 1, \; \bar{x} = (x, x, \ldots x)$$
+    meaning $x^n = e$.
+\end{answer}  
+
+\begin{question}
+    What is the conjugacy action?
+\end{question}
+\begin{answer}
+    $$G \times G \to G$$
+    $$(g, h) \to ghg^{-1}$$
+\end{answer}
+
+\begin{question}
+    Given $z \in Z(G)$, what is $\text{ccl}_G(z)$?
+\end{question}
+\begin{answer}
+    1
+\end{answer}
+
+\begin{question}
+    Write $Z(G)$ in terms of the centralizers in $G$.
+\end{question}
+\begin{answer}
+    $Z(G) = \bigcap_{h \in G} C_G(h)$
+\end{answer}
+
+\begin{question}
+    How can we relate the order of two elements in the same conjugacy class
+\end{question}
+\begin{answer}
+    They are equal
+\end{answer}
+
+\begin{question}
+    What is the orbit and stabilizer of the conjugacy action?
+\end{question}
+\begin{answer}
+    The orbit are conjugacy classes and the stabilizers are called centralizers.
+\end{answer}
+
+\begin{question}
+    Prove that if $|G| = p^n$ for some prime $p$, then $Z(G)$ is non-trivial.
+\end{question}
+\begin{answer}
+    $$G = \bigcup_{\text{distinct conj classes}} \text{ccl}_G(x)$$
+    By Orbit-Stabilizer theorem, $\text{ccl}_G(x) \; \big \vert \; |G| = p^n$ \\
+    So $|\text{ccl}_G(x)| = 1$ or $p\; \big \vert \; |\text{ccl}_G(x)|$\\
+    But $$|G| = \sum_{x \in Z(G)}{\text{ccl}_G(x)} 
+        + \sum_{\text{distinct classes w/} p\big\vert\text{ccl}_G(x)} {\text{ccl}_G(x)}$$
+    So $$p\; \big \vert\; \sum_{x \in Z(G)}{\text{ccl}_G(x)} = Z(G)$$ so $|Z(G)| > 1$.
+\end{answer}
+
+\begin{question}
+    Prove that if $G \big\backslash Z(G)$ is cyclic, then G is abelian.
+\end{question}
+\begin{answer}
+    just do it lolololol
+\end{answer}
+
+
+
+
+
+
+
+
 \section* {Lecture 18}
-{
-    \begin{question}
-        Prove that if $G \big\backslash Z(G)$ is cyclic, then G is abelian.
-    \end{question}
-    \begin{answer}
-        just do it lolololol
-    \end{answer}
-}
-{
-    \begin{question}
-        Let $\sigma \in S_n$. Define the cycle type of $\sigma$.
-    \end{question}
-    \begin{answer}
-        $\sigma$ can be written as a product of disjoint cycles including 1-cycles. Then the cycle type of $\sigma$ is 
-        $(n_1, n_2, \ldots, n_k)$ where $n_1 \leq n_2 \cdots \leq n_k$ and the $i$th cycle of $\sigma$ has length $n_i$
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove that $\pi$ and $\sigma$ are conjugate in $S_n$ iff they have the same cycle type.
-    \end{question}
-    \begin{answer}
-        $\sigma$ can be written as a product of disjoint cycles including 1-cycles. Then the cycle type of $\sigma$ is 
-        $(n_1, n_2, \ldots, n_k)$ where $n_1 \leq n_2 \cdots \leq n_k$ and the $i$th cycle of $\sigma$ has length $n_i$. \\
-        Consider $\tau$ conjugating $\sigma$, and consider the (general!) element $\sigma(a_{ij})$ and unwrap notation until
-        you can write a product of disjoint cycles for the conjugation. \\ \\
-        To show the converse, write $\pi$ similarly to $\sigma$ but with $b_{ij}$ and then show, with $\tau(a_{ij}) = b_{ij}$, that $\pi = \tau \sigma \tau^{-1}$.
-    \end{answer}
-}
-{
-    \begin{question}
-        Let $x \in A_n$.  If $\text{C}_{A_n}(x) = \text{C}_{S_n}(x)$, how can we relate
-        the size of $\text{cl}_{A_n}(x)$ and $\text{ccl}_{S_n}(x)$?
-    \end{question}
-    \begin{answer}
-        $$|\text{ccl}_{A_n}(x)| = \frac{|\text{ccl}_{S_n}(x)|}{2}$$
-    \end{answer}
-}
-{
-    \begin{question}
-        Let $x \in A_n$.  If $\text{C}_{A_n}(x) \nleq  \text{C}_{S_n}(x)$, how can we relate
-        the size of $\text{cl}_{A_n}(x)$ and $\text{ccl}_{S_n}(x)$?
-    \end{question}
-    \begin{answer}
-        $$|\text{ccl}_{A_n}(x)| = {|\text{ccl}_{S_n}(x)|}$$
-    \end{answer}
-}
+
+\begin{question}
+    Prove that if $G \big\backslash Z(G)$ is cyclic, then G is abelian.
+\end{question}
+\begin{answer}
+    just do it lolololol
+\end{answer}
+
+\begin{question}
+    Let $\sigma \in S_n$. Define the cycle type of $\sigma$.
+\end{question}
+\begin{answer}
+    $\sigma$ can be written as a product of disjoint cycles including 1-cycles. Then the cycle type of $\sigma$ is 
+    $(n_1, n_2, \ldots, n_k)$ where $n_1 \leq n_2 \cdots \leq n_k$ and the $i$th cycle of $\sigma$ has length $n_i$
+\end{answer}
+
+\begin{question}
+    Prove that $\pi$ and $\sigma$ are conjugate in $S_n$ iff they have the same cycle type.
+\end{question}
+\begin{answer}
+    $\sigma$ can be written as a product of disjoint cycles including 1-cycles. Then the cycle type of $\sigma$ is 
+    $(n_1, n_2, \ldots, n_k)$ where $n_1 \leq n_2 \cdots \leq n_k$ and the $i$th cycle of $\sigma$ has length $n_i$. \\
+    Consider $\tau$ conjugating $\sigma$, and consider the (general!) element $\sigma(a_{ij})$ and unwrap notation until
+    you can write a product of disjoint cycles for the conjugation. \\ \\
+    To show the converse, write $\pi$ similarly to $\sigma$ but with $b_{ij}$ and then show, with $\tau(a_{ij}) = b_{ij}$, that $\pi = \tau \sigma \tau^{-1}$.
+\end{answer}
+
+\begin{question}
+    Let $x \in A_n$.  If $\text{C}_{A_n}(x) = \text{C}_{S_n}(x)$, how can we relate
+    the size of $\text{cl}_{A_n}(x)$ and $\text{ccl}_{S_n}(x)$?
+\end{question}
+\begin{answer}
+    $$|\text{ccl}_{A_n}(x)| = \frac{|\text{ccl}_{S_n}(x)|}{2}$$
+\end{answer}
+
+\begin{question}
+    Let $x \in A_n$.  If $\text{C}_{A_n}(x) \nleq  \text{C}_{S_n}(x)$, how can we relate
+    the size of $\text{cl}_{A_n}(x)$ and $\text{ccl}_{S_n}(x)$?
+\end{question}
+\begin{answer}
+    $$|\text{ccl}_{A_n}(x)| = {|\text{ccl}_{S_n}(x)|}$$
+\end{answer}
+
+
+
+
+
+
 \section* {Lecture 19}
-{
-    \begin{question}
-        What are the number of elements in $S_n$ with $k_L$ cycles of length L?
-    \end{question}
-    \begin{answer}
-        $$\frac{n!}{\prod_L{k_L! L^{k_L}}}$$
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove $A_5$ is a simple group.
-    \end{question}
-    \begin{answer}
-        Suppose $N \trianglelefteq A_5$. Then $N$ is a union of conjugacy classes. \\
-        $\Rightarrow |N| = 1 + 15a + 20b + 12c$ where $a,b \in \{0, 1\}, c \in \{0,1,2\}$. \\
-        But by Lagrange, $|N| \big \vert |A_5| = 60$.\\
-        Only possibility is $|N| = 1$ or $60$.
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove $\text{GL}_n(\mathbb{R})$ is a group under matrix multiplication.
-    \end{question}
-    \begin{answer}
-        closure, identity, inverse: don't be noob
-        associative: use index notation
-    \end{answer}
-}
-{
-    \begin{question}
-        Prove $$\text{Det}: \text{GL}_n(\mathbb{R}) \to (\mathbb{R} \ba=ckslash \{0\}, \times)$$
-            $$A \to \text{det}A$$
-        is a surjective homomorphism
-    \end{question}
-    \begin{answer}
-        do it
-    \end{answer}
-}
-{
-    \begin{question}
-        What is $\mathbb{F}_p$?
-    \end{question}
-    \begin{answer}
-        It is the finite field $$\mathbb{F}_p = (\{0,1,\ldots,p-1\}, +_p, \times_p).$$
-    \end{answer}
-}
+
+\begin{question}
+    What are the number of elements in $S_n$ with $k_L$ cycles of length L?
+\end{question}
+\begin{answer}
+    $$\frac{n!}{\prod_L{k_L! L^{k_L}}}$$
+\end{answer}
+
+\begin{question}
+    Prove $A_5$ is a simple group.
+\end{question}
+\begin{answer}
+    Suppose $N \trianglelefteq A_5$. Then $N$ is a union of conjugacy classes. \\
+    $\Rightarrow |N| = 1 + 15a + 20b + 12c$ where $a,b \in \{0, 1\}, c \in \{0,1,2\}$. \\
+    But by Lagrange, $|N| \big \vert |A_5| = 60$.\\
+    Only possibility is $|N| = 1$ or $60$.
+\end{answer}
+
+\begin{question}
+    Prove $\text{GL}_n(\mathbb{R})$ is a group under matrix multiplication.
+\end{question}
+\begin{answer}
+    closure, identity, inverse: don't be noob
+    associative: use index notation
+\end{answer}
+
+\begin{question}
+    Prove $$\text{Det}: \text{GL}_n(\mathbb{R}) \to (\mathbb{R} \backslash \{0\}, \times)$$
+        $$A \to \text{det}A$$
+    is a surjective homomorphism
+\end{question}
+\begin{answer}
+    do it
+\end{answer}
+
+\begin{question}
+    What is $\mathbb{F}_p$?
+\end{question}
+\begin{answer}
+    It is the finite field $$\mathbb{F}_p = (\{0,1,\ldots,p-1\}, +_p, \times_p).$$
+\end{answer}
+
+
+
+
+
+
+
 
 \section* {Lecture 20}
-{
-    \begin{question}
-        What is $|GL_3(\mathbb{F}_p)|$?
-    \end{question}
-    \begin{answer}
-        Consider no. choices for each column. \\
-        Column 1: $p^3 - 1$ \\
-        Column 2: $p^3 - p$\\
-        Column 3: $p^3 - p^2$
-    \end{answer}
-}
-{
-    \begin{question}
-        What is $O(\mathbb{R})$
-    \end{question}
-    \begin{answer}
-        Orthonormal group. $$\text{O}_n(\mathbb{R}) = \{A \in M_n: A A^T = I\}$$
-    \end{answer}
-}
+
+\begin{question}
+    What is $|GL_3(\mathbb{F}_p)|$?
+\end{question}
+\begin{answer}
+    Consider no. choices for each column. \\
+    Column 1: $p^3 - 1$ \\
+    Column 2: $p^3 - p$\\
+    Column 3: $p^3 - p^2$
+\end{answer}
+
+\begin{question}
+    What is $O(\mathbb{R})$
+\end{question}
+\begin{answer}
+    Orthonormal group. $$\text{O}_n(\mathbb{R}) = \{A \in M_n: A A^T = I\}$$
+\end{answer}
+
+
+
+
+
+
+
+
 \section* {Lecture 21}
-{
-    \begin{question}
-        Prove $O(\mathbb{R})$ is a group
-    \end{question}
-    \begin{answer}
-        :3
-    \end{answer}
-}
-{
-    \begin{question}
-        Let $A \in \text{O}_n(\mathbb{R})$ and $\bx, \by \in M_n$, then \\
-        (i) $A\bx \cdot A\by = \bx \cdot \by$\\
-        (ii) $|Ax| = |x|$
-        So A is an isometry.
-    \end{question}
-    \begin{answer}
-        Start from givens and unravel definitions.
-    \end{answer}
-}
+
+\begin{question}
+    Prove $O(\mathbb{R})$ is a group
+\end{question}
+\begin{answer}
+    :3
+\end{answer}
+
+\begin{question}
+    Let $A \in \text{O}_n(\mathbb{R})$ and $\bx, \by \in M_n$, then \\
+    (i) $A\bx \cdot A\by = \bx \cdot \by$\\
+    (ii) $|Ax| = |x|$
+    So A is an isometry.
+\end{question}
+\begin{answer}
+    Start from givens and unravel definitions.
+\end{answer}
+
+\begin{question}
+    Find all 2x2 orthogonal matrices.
+\end{question}
+\begin{answer}
+    Use $AA^T = I$ definition to find conditions on the entries, then consider cases.
+\end{answer}
+
+\begin{question}
+    Let $A \in \text{SO}_3(\reals)$. Show that then $A$ is conjugate to a matrix
+    of the form
+
+        $$\begin{pmatrix}
+            \cos\theta & -\sin\theta & 0 \\
+            \sin\theta &  \cos\theta & 0 \\
+            0          &  0          & 1
+        \end{pmatrix}$$
+
+    for some $\theta \in [0, 2\pi).$ 
+
+\end{question}
+\begin{answer}
+    Can show matrix is conjugate to a 3x3 matrix that fixes $e_3$.
+    Then we just need to consider the 2x2 matrix case, from which it immediately
+    follows 2x2 case.
+\end{answer}
+
+\begin{question}
+    Write $\text{O}_3(\reals)$ in terms of $\text{SO}_3(\reals)$
+\end{question}
+\begin{answer}
+    $\text{O}_3(\reals) = \text{SO}_3(\reals) \cup 
+    \begin{psmallmatrix}
+        -1 & 0 & 0 \\
+         0 & 1 & 0 \\
+         0 & 0 & 1
+    \end{psmallmatrix} \text{SO}_3(\reals) $
+\end{answer}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 22
+\section* {Lecture 22}
+
+\begin{question}
+    What is a Mobius transform?
+\end{question}
+\begin{answer}
+    A Mobius transform is a function of a complex variable that can be written
+        $$f(z) = \frac{az + b}{cz + d}$$
+    for some $a,b,c,d \in \complex$ with $ad - bc \not = 0$.
+\end{answer}
+
+\begin{question}
+    Prove any element of $O_3(\reals)$ is a product of at most
+    3 reflections
+\end{question}
+\begin{answer}
+    Can consider fixing an axis at at time by adding a new reflection for each.
+\end{answer}
+
+\begin{question}
+    Prove the set $\mobius$ of all Mobius maps on $\complex$ is a group under 
+    composition.
+\end{question}
+\begin{answer}
+    Composition of maps is associative.\\
+    $I(z) = z \in \mobius$. \\
+    Closure can be verified manually by considering cases and bash.
+\end{answer}
+
+\begin{question}
+    Prove 
+        $$\text{GL}_2 (\complex)\backslash Z \cong \mobius$$
+    where $Z = \{ \begin{psmallmatrix}
+        \lambda & 0 \\
+        0 & \lambda
+    \end{psmallmatrix}: \lambda \in \complex / \{0\}\}$.
+\end{question}
+\begin{answer}
+    Construct surjective homomorphism
+    \begin{align*}
+        \Phi: \quad & \text{GL}_2(\complex) \; \to \mobius \\
+        & \begin{psmallmatrix} 
+            a & b \\ 
+            c & d 
+        \end{psmallmatrix} \quad  \to \frac{az+b}{cz+d}
+    \end{align*}
+    and apply first isomorphism theorem.
+\end{answer}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 23
+\section* {Lecture 23}
+
+\begin{question}
+    Prove 
+        $$\text{SL}_2 (\complex)\backslash \{\pm I\} \cong \mobius$$
+\end{question}
+\begin{answer}
+    Construct surjective homomorphism
+    \begin{align*}
+        \Phi: \quad & \text{SL}_2(\complex) \; \to \mobius \\
+        & \begin{psmallmatrix} 
+            a & b \\ 
+            c & d 
+        \end{psmallmatrix} \quad  \to \frac{az+b}{cz+d}
+    \end{align*}
+    and apply first isomorphism theorem.
+\end{answer}
+
+\begin{question}
+    Prove every Mobius map can be written as a composiiton of maps of the following
+    forms: \\
+    (i) $z \to az$, $a \not = 0$ \\
+    (ii) $z \to z + b$ \\
+    (iii) $z \to \frac{1}{z}$
+\end{question}
+\begin{answer}
+    Let $f(z) = \frac{az+b}{cz+d}$
+    Consider $c = 0$ and $c \not = 0$ cases and construct $f$ by composition.
+\end{answer}
+
+\begin{question}
+    What does it mean for a group $G$ to act triply transitively on a set $X$?
+\end{question}
+\begin{answer}
+    Given distinct $x_1, x_2, x_3 \in X$ and distinct $y_1, y_2, y_3 \in X$, 
+    then there exists a $g \in G$ such that $g(x_i) = y_i$.
+\end{answer}
+
+\begin{question}
+    Prove the action  of $\mobius$ on $\complex_\infty$ is sharply triply transitive.
+\end{question}
+\begin{answer}
+    Label first triple $\{z_0, z_1, z_\infty \}$ and second triple $\{w_0, w_1, w_\infty\}$.\\
+    We construct $g \in \mobius$ such that
+    \begin{align*}
+        g: \quad & z_0 \to 0 \\
+                 & z_1 \to 1 \\
+                 & z_\infty \to \infty \
+    \end{align*}
+
+    First suppose $z_1, z_2, z_3 \not = \infty$. Then
+        $$g(z) = \frac{(z-z_0)(z_1 - z_\infty)}{(z-z_\infty)(z_1 - z_0)}$$
+    Check: $``ad-bc'' = (z_0 - z_\infty)(z_1 - z_\infty)(z_1 - z_0) \not = 0$. \\
+    If $z_\infty = \infty$, then $g(z) = \frac{z-z_0}{z_1-z_0}$\\
+    If $z_1 = \infty$, then $g(z) = \frac{z-z_0}{z - z_\infty}$\\
+    If $z_\infty = \infty$, then $g(z) = \frac{z_1 - z_\infty}{z - z_\infty}$. \\
+    \\
+    Similarly find $h$ such that 
+    \begin{align*}
+        h: \quad & z_0 \to 0 \\
+                 & z_1 \to 1 \\
+                 & z_\infty \to \infty \
+    \end{align*} \\
+    
+    Then $f = h^{_1}g: z_i \to w_i$ as required. \\
+    \\
+    Now to prove uniqueness\\
+    Suppose $f': z_i \to w_i$.\\
+    Then $f^{-1}f': z_i \to z_i$\\
+    Let $g$ be as above. Can show $gf^{-1} f' g^{-1} = \text{id}$, \\
+    so $f = f'$.
+\end{answer}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 24
+\section* {Lecture 24}
+
+
+\begin{question}
+    Any non-identity Mobius map is conjugate to one of \\
+    (i) $z \to \omega z$ \\
+    (ii) $z \to z + 1$.
+\end{question}
+\begin{answer}
+    Consider jordan normal forms
+\end{answer}
+
+\begin{question}
+    Prove that a non-identity Mobius map has either 1 or 2 fixed points 
+\end{question}
+\begin{answer}
+    Note fixed points are preserved under conjugation. Hence consider number of
+    fixed points of $\omega z$ and $z + 1$
+\end{answer}
+
+\begin{question}
+    If $f \in \mobius$ and $C$ is a circle, prove that $f(C)$ is a circle.
+\end{question}
+\begin{answer}
+    It suffices to consider the transforms which constitute a mobius transform
+    and show that these individually preserve circles. Consider the complex equation
+    of a circle to verify each case.
+\end{answer}
+
+\begin{question}
+    Define the cross-ratio of $z_1, z_2, z_3, z_4 \in \complex_\infty$.
+\end{question}
+\begin{answer}
+        $$[z_1, z_2, z_3, z_4] = \frac{(z_1 - z_2)(z_2 - z_4)}{(z_1 - z_2)(z_3 - z_2)}$$
+    If we have $\omega_i = \infty$, just apply the dubious simplifiation of $\frac{\infty}{\infty} = 1$.
+\end{answer}
+
+\begin{question}
+    Given $z_1, z_2, z_3, z_4 \in \complex_\infty$
+    and $\omega_1, \omega_2, \omega_3, \omega_4 \in \complex_\infty$,
+    then $\exists f \in \mobius$ such that $f(z_i) = \omega_i$ iff 
+    $[z_1, z_2, z_3, z_4] = [\omega_1, \omega_2, \omega_3, \omega_4]$
+\end{question}
+\begin{answer}
+    $(\Rightarrow)$ Suppose $f(z_j) = \omega_j$. Find $\omega_j - \omega_k$ in terms of
+    function and show cross-ratios are the same. \\
+
+    $(\Leftarrow)$ Consider g mapping $z_i$ to $0,1,\infty$ and h mapping $\omega_i$ 
+    to $0,1,\infty$, and using $[0,1,x,\infty] = x$, show that $h^{-1}g$ works.
+\end{answer}
+
+\begin{question}
+    $z_1, z_2, z_3, z_4$ lie in some circle in $\complex_\infty$ iff
+    $[z_1, z_2, z_3, z_4] \in \reals$.
+\end{question}
+\begin{answer}
+    Construct a function
+        $$: C \to \reals \cup \{ \infty \}$$
+    and construct circle out of $z_1, z_2, z_4$. Map $g: z_i$ to $0,1,\infty$
+    and apply cross-ratios to show that $z_3 \in C \iff [z_1, z_2, z_3,z_4] \in \reals$.
+\end{answer}
+
+
+
+
+
+
 
 
 \end{document}

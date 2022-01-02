@@ -910,18 +910,67 @@ Equivalently,
 \end{answer}
 
 \begin{question}
-    Prove fora ny set $X$, there is no bijection between $X$ and $\powerset(X)$
+    Prove for any set $X$, there is no bijection between $X$ and $\powerset(X)$
 \end{question}
 \begin{answer}
     Given $f: X \to \powerset(X)$,\\
     Let $S = \{x \in X: x \not \in f(x) \}$. $S$ does not belong to the image of $f$\\
-    since $\forall x \in X$, $S$ and $f(x)$ differ in the element $x$ and thus $\powerset(X) \not = f(x)$.
+    since $\forall x \in X$, $S$ and $f(x)$ differ in the element $x$ and thus $S \not = f(x)$,
+    so $S$ is not mapped to.
+\end{answer}
+
+\begin{question}
+    Let $\{A_i i \in I \}$ be a family of open intervals of $\reals$ which are
+    pairwise disjoint. Prove the family is countable by considering rationals.
+\end{question}
+\begin{answer}
+    Each interval $A_i$ contains a rational, and $\rationals$ is countable, so
+    since the intervals are disjoint we have an injection from $I$ into $\rationals$.
+    Hence the family $\{A_i:i \in I\}$ is countable.
+\end{answer}
+
+\begin{question}
+    Let $\{A_i i \in I \}$ be a family of open intervals of $\reals$ which are
+    pairwise disjoint. Prove the family is countable by considering length of intervals.
+\end{question}
+\begin{answer}
+    The set $\{i \in I: A_i$ has length $\leq 1 \}$ is countable as it
+    injects into $\frac{1}{2} \integers$.
+    More generally, for each $n \in \naturals$, $\{i \in I: A_i$ has length $\leq \frac{1}{n} \}$
+\\ \\
+    Now $\{A_i: i \in I\}$ is countable as it is a countable union of
+    countable sets.
 \end{answer}
 
 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LECTURE 23
+\section* {Lecture 23}
+
+\begin{question}
+    Given non-empty sets $A$ and $B$, $\exists$ injection $f: A \to B \iff \exists$
+    surjection $g: B \to A$.  
+\end{question}
+\begin{answer}
+    Construct a function $g$ which satisfies the desired condition.
+\end{answer}
+
+\begin{question}
+    State the Schroder-Bernstein Theorem
+\end{question}
+\begin{answer}
+    If $f: A \to B$ and $g: B \to A$ are injections, then $\exists$ bijection
+    $h: A \to B$.
+\end{answer}
+
+\begin{question}
+    Prove the Schroder-Bernstein Theorem.
+\end{question}
+\begin{answer}
+    digest this and write it up
+\end{answer}
 
 
 

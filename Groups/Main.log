@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.15)  21 DEC 2021 22:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.12.15)  2 JAN 2022 06:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -161,40 +161,27 @@ LaTeX Warning: Command \underline  has changed.
 
 )
 \c@question=\count271
-
-
-c:/Users/Joel Braun/Desktop/IA Notes/Groups/Main.tex:47: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.47 \noindent
-              
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-(c:/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+ (c:/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-12-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count272
 \l__pdf_internal_box=\box52
 ) (./Main.aux)
 \openout1 = `Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
  (c:/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count273
@@ -209,74 +196,83 @@ LaTeX Font Info:    ... okay on input line 50.
 \makeMPintoPDFobject=\count278
 \everyMPtoPDFconversion=\toks30
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
- (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
+Underfull \hbox (badness 10000) in paragraph at lines 83--86
+
+ []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 105.
+(c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 105.
  (c:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (63.43555pt too wide) in paragraph at lines 93--96
-[][]\OT1/cmr/bx/n/10 Question 5. [][]\OT1/cmr/m/n/10 Sketch a ge-o-met-ric proof that the group $\OML/cmm/m/it/10 D[]$ \OT1/cmr/m/n/10 is $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 e; r; r[]; [] ; r[]; t; rt; [] ; r[]t\OMS/cmsy/m/n/10 g$
- []
-
-[1
+) [1
 
 {c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 194--197
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--197
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--202
-
+Overfull \hbox (69.18552pt too wide) in paragraph at lines 199--202
+[][]\OT1/cmr/bx/n/10 Question 12. [][]\OT1/cmr/m/n/10 Sketch a ge-o-met-ric proof that the group $\OML/cmm/m/it/10 D[]$ \OT1/cmr/m/n/10 is $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 e; r; r[]; [] ; r[]; t; rt; [] ; r[]t\OMS/cmsy/m/n/10 g$
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 256--261
+Underfull \hbox (badness 10000) in paragraph at lines 287--290
 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 296--299
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--290
 
  []
 
-[4] [5] [6] [7] [8] [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 897--902
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--295
 
  []
 
-[12]
-c:/Users/Joel Braun/Desktop/IA Notes/Groups/Main.tex:953: Undefined control sequence.
-l.953 ...ext{GL}_n(\mathbb{R}) \to (\mathbb{R} \ba
-                                                  =ckslash \{0\}, \times)$$
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+[3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 431--436
 
-[13] [14] (./Main.aux) ) 
+ []
+
+[5] [6] [7] [8] [9] [10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 899--904
+
+ []
+
+[12] [13] [14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 1172--1179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1183--1184
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1185--1192
+
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 1243--1245
+
+ []
+
+[17] (./Main.aux) ) 
 Here is how much of TeX's memory you used:
- 4270 strings out of 479804
- 64771 string characters out of 5884935
- 381989 words of memory out of 5000000
- 22162 multiletter control sequences out of 15000+600000
+ 4280 strings out of 479804
+ 64859 string characters out of 5884935
+ 383075 words of memory out of 5000000
+ 22172 multiletter control sequences out of 15000+600000
  406661 words of font info for 40 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 54i,8n,62p,320b,194s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Main.pdf (14 pages, 175546 bytes).
+ 54i,13n,62p,316b,224s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Main.pdf (17 pages, 202175 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 129 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
